@@ -2,6 +2,7 @@ import { ReactNode, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Mail, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Logo } from './Logo';
 
 interface LayoutProps {
   children: ReactNode;
@@ -35,7 +36,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Top Bar */}
-      <div className="bg-brand-taupe text-brand-light py-2 text-xs md:text-sm">
+      <div className="bg-brand-dark text-brand-light py-2 text-xs md:text-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <MapPin className="w-4 h-4" />
@@ -54,10 +55,10 @@ export function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Main Navigation */}
-      <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-brand-light/95 backdrop-blur-md shadow-sm py-4' : 'bg-brand-light py-6'}`}>
+      <nav className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-brand-light/95 backdrop-blur-md shadow-sm py-1 md:py-0' : 'bg-brand-light py-3 md:py-2'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <Link to="/" className="text-2xl md:text-3xl font-serif font-semibold tracking-wide text-brand-dark">
-            ADNA COSMETICS
+          <Link to="/" className="text-brand-dark hover:text-brand-taupe transition-colors">
+            <Logo className="h-[76px] md:h-24 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -152,8 +153,10 @@ export function Layout({ children }: LayoutProps) {
       {/* Footer */}
       <footer className="bg-brand-dark text-brand-light py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-          <div className="flex flex-col space-y-4">
-            <h3 className="font-serif text-2xl mb-2">Adna Cosmetics</h3>
+          <div className="flex flex-col space-y-4 items-center md:items-start">
+            <Link to="/" className="text-brand-light hover:text-brand-nude transition-colors mb-2">
+              <Logo src="/logo_white.png" className="h-20 md:h-24 w-auto" />
+            </Link>
             <p className="text-brand-nude opacity-80 max-w-sm mx-auto md:mx-0">
               Kozmetični salon Adna Cosmetics, kjer lepota sreča strokovnost in poudarja vašo unikatnost.
             </p>
@@ -174,10 +177,6 @@ export function Layout({ children }: LayoutProps) {
             <div className="flex space-x-4 justify-center md:justify-start">
               <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="p-3 border border-brand-nude/30 rounded-full hover:bg-brand-nude/10 hover:border-brand-nude transition-all">
                 <Instagram className="w-5 h-5 text-brand-nude" />
-              </a>
-               {/* TikTok placeholder */}
-               <a href="#" className="p-3 border border-brand-nude/30 rounded-full hover:bg-brand-nude/10 hover:border-brand-nude transition-all flex items-center content-center justify-center leading-none">
-                <span className="text-brand-nude font-bold">TT</span>
               </a>
             </div>
           </div>

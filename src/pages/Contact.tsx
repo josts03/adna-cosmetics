@@ -87,7 +87,6 @@ export function Contact() {
                   <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="text-brand-dark/70 hover:text-brand-taupe transition-colors block mb-1">
                     Instagram: @adnaa_cosmetics
                   </a>
-                  <span className="text-brand-dark/70">TikTok: ADNA COSMETICS</span>
                 </div>
               </div>
 

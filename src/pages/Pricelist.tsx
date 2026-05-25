@@ -81,7 +81,7 @@ export function Pricelist() {
               ))}
             </div>
             <p className="text-sm text-brand-taupe italic mt-6 flex items-center">
-              <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termine prosim hodite brez maskare.
+              <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termine prosim pridite brez maskare.
             </p>
           </div>
 

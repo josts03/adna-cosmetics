@@ -2,29 +2,34 @@ import { SEO } from '../components/SEO';
 
 const servicesList = [
   {
+    id: 'manikura',
+    title: 'Manikura',
+    description: 'Pri storitvi manikure poskrbim za urejeno obnohtno kožico, nato odvisno od želje stranke in nohtne plošče, naraven noht pokrijem z izbranim materialom. Zelo rada naredim francosko manikuro, delam pa tudi enostavne poslikave. Pri svojem delu uporabljam kvalitetne materijale in ponujam široko paleto barv. Stranka pride na ponovni obisk v roku 3 - 4 tednov, nega doma pa sloni na uporabi olja in čuvanju nohtov pred mehanskimi poškodbami. Za dobro obstojnost nohtov dam 50% jaz, drugih 50% pa stranka.',
+  },
+  {
+    id: 'pedikura',
+    title: 'Pedikura',
+    description: 'Pedikura je izraz, ki označuje urejanje stopal. Stranke, ki se na pedikuro naročijo, si večinoma želijo imeti bolj obstojen lak in bolj natančno nanesen. Jaz z urejanjem obnohtne kožice, krajšanjem in oblikovanjem nohtov poskrbim za bolj lahkoten korak in estetski videz.',
+  },
+  {
+    id: 'vihanje-trepalnic',
+    title: 'Vihanje trepalnic',
+    description: 'Vihanje trepalnic je tehnika s katero privzdignemo naravne trepalnice, po želji lahko trepalnice tudi pobarvamo. Po končani storitvi bodo oči videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Za najboljše rezultate se prvih 24h po tretmaju izogibamo savnam in močenju trepalnic, prav tako ne nanašamo maskare.',
+  },
+  {
+    id: 'laminacija-obrvi',
+    title: 'Laminacija obrvi',
+    description: 'Pri laminaciji obrvi lahko prav tako vključimo tudi barvanje. Laminacija nam pomaga obvladovati obrvi in narediti lepo obliko brez uporabe gelov, dlačice tako ukrotimo. K storitvi ni vključeno oblikovanje obrvi.',
+  },
+  {
     id: 'depilacija',
     title: 'Depilacija',
-    description: 'Zagotavljamo vam gladko in mehko kožo. Odstranjevanje nezaželenih dlačic s profesionalnimi izdelki, ki so nežni do vaše kože in zagotavljajo dolgotrajne rezultate.',
-  },
-  {
-    id: 'obrvi-trepalnice',
-    title: 'Obrvi in trepalnice',
-    description: 'Popolno oblikovane obrvi in poudarjene trepalnice za definiran pogled. Nudimo barvanje, oblikovanje in napredne tehnike nege.',
-  },
-  {
-    id: 'lash-lift-laminacija',
-    title: 'Lash lift in laminacija obrvi',
-    description: 'Lash lift naravno privzdigne vaše trepalnice, laminacija obrvi pa ukroti in oblikuje dlačice obrvi v popolno obliko za več tednov. Popoln nadomestek za podaljševanje.',
-  },
-  {
-    id: 'nohti',
-    title: 'Nohti',
-    description: 'Zdravi in lepi nohti so odraz urejenosti. Nudimo osnovno manikuro, permanentno lakiranje, ter različne tehnike grajenja in podaljševanja nohtov po vaših željah.',
+    description: 'S pomočjo vročega voska izpulimo dlačico z mešičkom. Depilacija nam omogoča mehko kožo nekaj tednov, pri redni depilaciji se dlačice stanjšajo, posvetlijo in razredčijo. Po depilaciji se prvih 24-48h izogibamo direktnemu soncu.',
   },
   {
     id: 'masaza',
     title: 'Masaža',
-    description: 'Sprostite se ob pomirjujoči masaži, ki poskrbi za sprostitev napetih mišic in odpravo stresa. Čas samo za vas in vaše telo.',
+    description: 'Klasična masaža telesa vključuje masažo hrbta, rok in nog spredaj in zadaj. 1 ura sprostitve v današnjem hitrem življenju bo vsakemu prav prišla. Za tiste, ki nimajo toliko časa pa obstaja masaža zgornjega hrbta in vratu, ta je krajša in traja 30 min, je kot nalašč za hitro sprostitev.',
   }
 ];
 
@@ -33,7 +38,7 @@ export function Services() {
     <>
       <SEO
         title="Storitve"
-        description="Raznolika ponudba storitev v salonu Adna Cosmetics: Depilacija, urejanje obrvi, lash lift, laminacija nohtov, manikura in sproščujoča masaža."
+        description="Raznolika ponudba storitev v salonu Adna Cosmetics: Depilacija, urejanje obrvi, lash lift, laminacija obrvi, manikura in sproščujoča masaža."
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

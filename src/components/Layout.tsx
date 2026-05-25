@@ -152,7 +152,7 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer className="bg-brand-dark text-brand-light py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
           <div className="flex flex-col space-y-4 items-center md:items-start">
             <Link to="/" className="text-brand-light hover:text-brand-nude transition-colors mb-2">
               <Logo src="/logo_white.png" className="h-20 md:h-24 w-auto" />
@@ -170,6 +170,18 @@ export function Layout({ children }: LayoutProps) {
             <a href="mailto:adnaacosmetics@gmail.com" className="flex items-center justify-center md:justify-start gap-2 hover:text-brand-light transition-colors">
               <Mail className="w-4 h-4 text-brand-nude" /> adnaacosmetics@gmail.com
             </a>
+          </div>
+
+          <div className="flex flex-col space-y-4">
+            <h4 className="font-serif text-xl mb-2">Delovni čas</h4>
+            <div className="text-sm space-y-2">
+              <p className="flex justify-center md:justify-start gap-2">
+                <span>Pon - Pet:</span> <span className="text-brand-nude">Po dogovoru</span>
+              </p>
+              <p className="flex justify-center md:justify-start gap-2">
+                <span>Sob, Ned, prazniki:</span> <span className="text-brand-nude">Zaprto</span>
+              </p>
+            </div>
           </div>
 
           <div className="flex flex-col space-y-4">

@@ -118,7 +118,7 @@ export function Contact() {
                     name="Ime"
                     required
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
-                    placeholder="Vaše ime"
+                    placeholder="Vaše ime in priimek"
                   />
                 </div>
                 <div>
@@ -141,9 +141,10 @@ export function Contact() {
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
                   >
                     <option value="">Izberite storitev</option>
+                    <option value="manikura">Manikura</option>
+                    <option value="pedikura">Pedikura</option>
                     <option value="depilacija">Depilacija</option>
                     <option value="obrvi">Obrvi in trepalnice</option>
-                    <option value="nohti">Nohti</option>
                     <option value="masaza">Masaža</option>
                     <option value="vec_storitev">Več storitev</option>
                     <option value="posvetovanje">Posvetovanje</option>

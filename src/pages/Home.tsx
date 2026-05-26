@@ -27,14 +27,14 @@ export function Home() {
               <span className="italic text-brand-taupe">v Adna Cosmetics</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-dark/80 mb-10 max-w-lg leading-relaxed">
-              Kjer se sprostite, napolnite z energijo in poudarite svojo naravno lepoto. Pridite po samozavest na Vrhniko.
+              Manikura, pedikura, depilacija, obrvi in masaža — vse na enem mestu. Rezervirajte svoj termin zdaj.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/kontakt"
                 className="px-8 py-4 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-taupe transition-colors text-center"
               >
-                Rezerviraj termin
+                Rezerviraj termin →
               </Link>
               <Link
                 to="/storitve"
@@ -57,26 +57,31 @@ export function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'Depilacija',
-                desc: 'Gladka koža s profesionalno nego.',
+                title: 'Manikura',
+                desc: 'Brezhibno urejene roke ki naredijo vtis. Gel, trajni lak in podaljševanje za nohte ki trajajo.',
                 icon: <Sparkles className="w-6 h-6" />
               },
               {
-                title: 'Obrvi in trepalnice',
-                desc: 'Lash lift, laminacija in popolna oblika.',
-                icon: <Heart className="w-6 h-6" />
-              },
-              {
-                title: 'Nohti',
-                desc: 'Manikura in podaljševanje za brezhibne roke.',
+                title: 'Pedikura',
+                desc: 'Mehke, negovane noge vse leto. Profesionalna pedikura za popolno urejena stopala.',
                 icon: <CheckCircle className="w-6 h-6" />
               },
               {
+                title: 'Depilacija',
+                desc: 'Do 4 tedne gladke kože brez britja. Učinkovito voskanje za vse tipe kože.',
+                icon: <Heart className="w-6 h-6" />
+              },
+              {
+                title: 'Obrvi in trepalnice',
+                desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudite se urejeni.',
+                icon: <Sparkles className="w-6 h-6" />
+              },
+              {
                 title: 'Masaža',
-                desc: 'Sprostitev telesa in duha.',
+                desc: '60-minutna masaža, ki odpravi napetost v hrbtu in ramenih.',
                 icon: <Heart className="w-6 h-6" />
               }
             ].map((service, index) => (
@@ -91,6 +96,46 @@ export function Home() {
                 <Link to="/storitve" className="inline-flex items-center text-sm font-semibold text-brand-taupe hover:text-brand-dark transition-colors uppercase tracking-widest">
                   Več <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-4xl font-serif mb-4">Kar pravijo naše stranke</h2>
+            <p className="text-brand-dark/70">
+              Pridružite se zadovoljnim strankam iz Vrhnike in okolice
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { text: '[Komentar stranke]', name: '[Ime P.]', city: '[Kraj]', initial: 'I' },
+              { text: '[Komentar stranke]', name: '[Ime P.]', city: '[Kraj]', initial: 'I' },
+              { text: '[Komentar stranke]', name: '[Ime P.]', city: '[Kraj]', initial: 'I' },
+            ].map((review, i) => (
+              <div key={i} className="p-8 border border-brand-nude/50 flex flex-col items-start bg-brand-light/30">
+                <div className="flex space-x-1 mb-6">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                     <span key={j} className="text-[#D4AF37] text-lg">★</span>
+                  ))}
+                </div>
+                <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed">
+                  "{review.text}"
+                </p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-10 h-10 rounded-full bg-brand-nude/40 flex items-center justify-center font-serif text-brand-taupe font-semibold text-lg">
+                    {review.initial}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-brand-dark">{review.name}</h4>
+                    <p className="text-xs text-brand-dark/60">{review.city}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -131,7 +176,33 @@ export function Home() {
             <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden flex items-center justify-center">
               <span className="text-brand-dark/30 font-serif italic text-2xl">Slika salona / Osebja</span>
             </div>
+            
+            <div className="absolute -bottom-6 left-1/2 min-w-[280px] sm:min-w-[320px] -translate-x-1/2 bg-white px-6 sm:px-8 py-5 sm:py-6 shadow-xl text-center rounded-sm">
+              <p className="font-serif text-lg sm:text-xl text-brand-dark mb-2">Adna, ustanoviteljica — 5+ let izkušenj</p>
+              <p className="text-brand-dark/70 italic text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">"Moje poslanstvo je da vsaka stranka zapusti salon bolj samozavestna kot je prišla."</p>
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-brand-dark text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl md:text-5xl font-serif text-brand-light mb-6">
+            Pripravljeni za spremembo?
+          </h2>
+          <p className="text-brand-nude text-lg md:text-xl mb-10">
+            Vaš termin čaka.
+          </p>
+          <Link
+            to="/kontakt"
+            className="inline-block px-10 py-5 bg-brand-light text-brand-dark uppercase tracking-widest text-sm font-semibold hover:bg-brand-nude transition-colors mb-6"
+          >
+            Rezerviraj svoj termin →
+          </Link>
+          <p className="text-brand-light/60 text-sm">
+            Ali nas kontaktirajte: <a href="mailto:adnaacosmetics@gmail.com" className="underline hover:text-brand-light">adnaacosmetics@gmail.com</a>
+          </p>
         </div>
       </section>
     </>

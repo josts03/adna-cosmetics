@@ -31,8 +31,12 @@ export function About() {
           <div className="w-full static lg:sticky lg:top-32 lg:col-start-1 lg:row-start-1 lg:row-span-2">
             <div className="relative h-[400px] lg:h-[600px] w-full">
               <div className="absolute inset-0 bg-brand-nude translate-x-4 translate-y-4"></div>
-              <div className="absolute inset-0 bg-brand-dark/5 flex items-center justify-center border border-brand-rose">
-                <span className="text-brand-dark/30 font-serif italic text-xl">Profilna slika</span>
+              <div className="absolute inset-0 bg-brand-dark/5 overflow-hidden border border-brand-rose group">
+                <img 
+                  src="/profilna-slika copy.webp" 
+                  alt="Adna, ustanoviteljica salona" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               </div>
             </div>
           </div>

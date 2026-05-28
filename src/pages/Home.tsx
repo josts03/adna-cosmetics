@@ -173,8 +173,12 @@ export function Home() {
           </div>
           <div className="relative h-[600px] w-full">
             <div className="absolute inset-0 bg-brand-rose/20 rounded-t-full transform rotate-3"></div>
-            <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden flex items-center justify-center">
-              <span className="text-brand-dark/30 font-serif italic text-2xl">Slika salona / Osebja</span>
+            <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden group">
+              <img 
+                src="/salon-osebje copy.webp" 
+                alt="Adna, ustanoviteljica salona" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
             
             <div className="absolute -bottom-6 left-1/2 min-w-[280px] sm:min-w-[320px] -translate-x-1/2 bg-white px-6 sm:px-8 py-5 sm:py-6 shadow-xl text-center rounded-sm">

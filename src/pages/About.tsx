@@ -5,13 +5,13 @@ export function About() {
     <>
       <SEO
         title="O meni"
-        description="Spoznajte mene in mojo vizijo. Adna Cosmetics je salon na Vrhniki z dolgoletnimi izkušnjami in certifikati s področja lepote."
+        description="Spoznaj mene in mojo vizijo. Adna Cosmetics je salon na Vrhniki z dolgoletnimi izkušnjami in certifikati s področja lepote."
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-serif text-brand-dark mb-6">O meni</h1>
           <p className="max-w-2xl mx-auto text-brand-dark/70 text-lg">
-            Spoznajte zgodbo salona Adna Cosmetics.
+            Spoznaj zgodbo salona Adna Cosmetics.
           </p>
         </div>
       </div>
@@ -23,19 +23,19 @@ export function About() {
             <h2 className="text-4xl font-serif mb-6 lg:mb-8 text-brand-dark">Adna Cosmetics</h2>
             <div className="prose prose-lg text-brand-dark/80 max-w-none">
               <p className="mb-0 lg:mb-6">
-                Dobrodošli v mojem kotičku lepote. Že od nekdaj me navdihuje estetika in dobro počutje, zato sem se odločila svoje znanje in strast pretopiti v profesionalen kozmetični salon.
+                Dobrodošla v mojem kotičku lepote. Že od nekdaj me navdihuje estetika in dobro počutje, zato sem se odločila svoje znanje in strast pretopiti v profesionalen kozmetični salon.
               </p>
             </div>
           </div>
 
           <div className="w-full static lg:sticky lg:top-32 lg:col-start-1 lg:row-start-1 lg:row-span-2">
-            <div className="relative h-[400px] lg:h-[600px] w-full">
+            <div className="relative w-full">
               <div className="absolute inset-0 bg-brand-nude translate-x-4 translate-y-4"></div>
-              <div className="absolute inset-0 bg-brand-dark/5 overflow-hidden border border-brand-rose group">
+              <div className="relative bg-brand-dark/5 overflow-hidden border border-brand-rose group">
                 <img 
-                  src="/profilna-slika copy.webp" 
+                  src="/profilna-slika.webp" 
                   alt="Adna, ustanoviteljica salona" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
             </div>

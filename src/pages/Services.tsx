@@ -52,7 +52,7 @@ export function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-serif text-brand-dark mb-6">Naše storitve</h1>
           <p className="max-w-2xl mx-auto text-brand-dark/70 text-lg">
-            Prepustite se strokovnim rokam in uživajte v vrhunskih lepotnih tretmajih.
+            Prepusti se strokovnim rokam in uživaj v vrhunskih lepotnih tretmajih.
           </p>
         </div>
       </div>

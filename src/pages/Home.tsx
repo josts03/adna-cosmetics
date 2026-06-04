@@ -1,13 +1,30 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, Heart, CheckCircle, ArrowRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
+import { motion, AnimatePresence } from 'motion/react';
+
+const initialReviews = [
+  { text: 'Super si, ful dobre nohtke delas in res se vidi da se izobrazujes redno! 💖💅🏼', name: 'Ula L.', city: 'Ljubljana', initial: 'U' },
+  { text: 'Top of the top, ocena 5', name: 'Ema V.', city: 'Brezovica', initial: 'E' },
+  { text: 'Vedno vesela, nasmejana in družabna, izpolnjuješ želje brez vprašanj. Čista 5 ❤️', name: 'Lejla R.', city: 'Idrija', initial: 'L' },
+  { text: 'Tvoji nohti so mi zmeraj drzali, noben ni nikoli odstopil, tudi ce sem jih imela dlje casa gor se noben ni zlomil, toptoptop', name: 'Zoja B.', city: 'Logatec', initial: 'Z' }
+];
 
 export function Home() {
+  const [reviews, setReviews] = useState(initialReviews);
+
+  useEffect(() => {
+    // Randomize initial array
+    const shuffled = [...initialReviews].sort(() => Math.random() - 0.5);
+    setReviews(shuffled);
+  }, []);
+
   return (
     <>
       <SEO
         title="Domov"
-        description="Adna Cosmetics - Vaš salon lepote na Vrhniki. Nudimo depilacijo, nego obrvi in trepalnic, manikuro in masažo."
+        description="Adna Cosmetics - Tvoj salon lepote na Vrhniki. Nudimo depilacijo, nego obrvi in trepalnic, manikuro in masažo."
         keywords="kozmetični salon Vrhnika, Adna Cosmetics, depilacija Vrhnika, urejanje obrvi Vrhnika, manikura Vrhnika"
       />
       
@@ -27,7 +44,7 @@ export function Home() {
               <span className="italic text-brand-taupe">v Adna Cosmetics</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-dark/80 mb-10 max-w-lg leading-relaxed">
-              Manikura, pedikura, depilacija, obrvi in masaža — vse na enem mestu. Rezervirajte svoj termin zdaj.
+              Manikura, pedikura, depilacija, obrvi, trepalnice in masaža — vse na enem mestu. Rezerviraj svoj termin zdaj.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -53,7 +70,7 @@ export function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-4xl font-serif mb-4">Kaj ponujamo?</h2>
             <p className="text-brand-dark/70">
-              Celovita ponudba lepotnih storitev za vaš popoln videz.
+              Celovita ponudba lepotnih storitev za tvoj popoln videz.
             </p>
           </div>
 
@@ -61,7 +78,7 @@ export function Home() {
             {[
               {
                 title: 'Manikura',
-                desc: 'Brezhibno urejene roke ki naredijo vtis. Gel, trajni lak in podaljševanje za nohte ki trajajo.',
+                desc: 'Brezhibno urejene roke, ki naredijo vtis. Gel, trajni lak in podaljševanje za nohte, ki trajajo.',
                 icon: <Sparkles className="w-6 h-6" />
               },
               {
@@ -76,7 +93,7 @@ export function Home() {
               },
               {
                 title: 'Obrvi in trepalnice',
-                desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudite se urejeni.',
+                desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudi se urejena.',
                 icon: <Sparkles className="w-6 h-6" />
               },
               {
@@ -106,38 +123,44 @@ export function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl font-serif mb-4">Kar pravijo naše stranke</h2>
+            <h2 className="text-4xl font-serif mb-4">Mnenja strank</h2>
             <p className="text-brand-dark/70">
-              Pridružite se zadovoljnim strankam iz Vrhnike in okolice
+              Pridruži se zadovoljnim strankam z Vrhnike in okolice.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { text: '[Komentar stranke]', name: '[Ime P.]', city: '[Kraj]', initial: 'I' },
-              { text: '[Komentar stranke]', name: '[Ime P.]', city: '[Kraj]', initial: 'I' },
-              { text: '[Komentar stranke]', name: '[Ime P.]', city: '[Kraj]', initial: 'I' },
-            ].map((review, i) => (
-              <div key={i} className="p-8 border border-brand-nude/50 flex flex-col items-start bg-brand-light/30">
-                <div className="flex space-x-1 mb-6">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                     <span key={j} className="text-[#D4AF37] text-lg">★</span>
-                  ))}
-                </div>
-                <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed">
-                  "{review.text}"
-                </p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-10 h-10 rounded-full bg-brand-nude/40 flex items-center justify-center font-serif text-brand-taupe font-semibold text-lg">
-                    {review.initial}
+          <div className="overflow-hidden py-4 -mx-4 px-4 md:mx-0 md:px-0">
+            <motion.div
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ ease: "linear", duration: 36, repeat: Infinity }}
+              style={{ willChange: "transform" }}
+              className="flex gap-4 md:gap-6 w-max"
+            >
+              {[...reviews, ...reviews].map((review, i) => (
+                <div
+                  key={`${review.name}-${i}`}
+                  className="w-[300px] md:w-[400px] shrink-0 p-8 border border-brand-nude/50 flex flex-col items-start bg-brand-light/30 rounded-sm"
+                >
+                  <div className="flex space-x-1 mb-6">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                       <span key={j} className="text-[#D4AF37] text-lg">★</span>
+                    ))}
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-brand-dark">{review.name}</h4>
-                    <p className="text-xs text-brand-dark/60">{review.city}</p>
+                  <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed">
+                    "{review.text}"
+                  </p>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-10 h-10 rounded-full bg-brand-nude/40 flex items-center justify-center font-serif text-brand-taupe font-semibold text-lg shrink-0">
+                      {review.initial}
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-brand-dark">{review.name}</h4>
+                      <p className="text-xs text-brand-dark/60">{review.city}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
@@ -182,8 +205,8 @@ export function Home() {
             </div>
             
             <div className="absolute -bottom-6 left-1/2 min-w-[280px] sm:min-w-[320px] -translate-x-1/2 bg-white px-6 sm:px-8 py-5 sm:py-6 shadow-xl text-center rounded-sm">
-              <p className="font-serif text-lg sm:text-xl text-brand-dark mb-2">Adna, ustanoviteljica — 5+ let izkušenj</p>
-              <p className="text-brand-dark/70 italic text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">"Moje poslanstvo je da vsaka stranka zapusti salon bolj samozavestna kot je prišla."</p>
+              <p className="font-serif text-lg sm:text-xl text-brand-dark mb-2">Adna, ustanoviteljica z 5+ let izkušenj.</p>
+              <p className="text-brand-dark/70 italic text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">"Moje poslanstvo je, da vsaka stranka zapusti salon bolj samozavestna, kot je prišla."</p>
             </div>
           </div>
         </div>
@@ -193,10 +216,10 @@ export function Home() {
       <section className="py-24 bg-brand-dark text-center">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-serif text-brand-light mb-6">
-            Pripravljeni za spremembo?
+            Pripravljena za spremembo?
           </h2>
           <p className="text-brand-nude text-lg md:text-xl mb-10">
-            Vaš termin čaka.
+            Tvoj termin čaka.
           </p>
           <Link
             to="/kontakt"
@@ -205,7 +228,7 @@ export function Home() {
             Rezerviraj svoj termin →
           </Link>
           <p className="text-brand-light/60 text-sm">
-            Ali nas kontaktirajte: <a href="mailto:adnaacosmetics@gmail.com" className="underline hover:text-brand-light">adnaacosmetics@gmail.com</a>
+            Ali nas kontaktiraj: <a href="mailto:adnaacosmetics@gmail.com" className="underline hover:text-brand-light">adnaacosmetics@gmail.com</a>
           </p>
         </div>
       </section>

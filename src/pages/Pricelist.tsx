@@ -38,7 +38,7 @@ export function Pricelist() {
     <>
       <SEO
         title="Cenik"
-        description="Aktualni cenik vseh storitev salona Adna Cosmetics. Preverite cene depilacije, nege nohtov, urejanja obrvi in trepalnic."
+        description="Aktualni cenik vseh storitev salona Adna Cosmetics. Preveri cene depilacije, nege nohtov, urejanja obrvi in trepalnic."
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -81,7 +81,7 @@ export function Pricelist() {
               ))}
             </div>
             <p className="text-sm text-brand-taupe italic mt-6 flex items-center">
-              <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termine prosim pridite brez maskare.
+              <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termine prosim pridi brez maskare.
             </p>
           </div>
 

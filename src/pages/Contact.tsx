@@ -44,13 +44,13 @@ export function Contact() {
     <>
       <SEO
         title="Kontakt in Naročanje"
-        description="Stopite v stik z nami in si rezervirajte svoj termin. Nahajamo se na Vrhniki."
+        description="Stopi v stik z nami in si rezerviraj svoj termin. Nahajamo se na Vrhniki."
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-serif text-brand-dark mb-6">Kontakt</h1>
           <p className="max-w-2xl mx-auto text-brand-dark/70 text-lg">
-            Stopite v stik ali rezervirajte svoj termin.
+            Stopi v stik ali rezerviraj svoj termin.
           </p>
         </div>
       </div>
@@ -106,7 +106,7 @@ export function Contact() {
               <div className="bg-brand-nude/20 p-8 border border-brand-nude text-center">
                 <CheckCircle className="w-12 h-12 text-brand-taupe mx-auto mb-4" />
                 <h3 className="text-2xl font-serif text-brand-dark mb-2">Hvala za povpraševanje!</h3>
-                <p className="text-brand-dark/80">Vaše sporočilo je bilo uspešno poslano, kmalu vas bomo kontaktirali.</p>
+                <p className="text-brand-dark/80">Tvoje sporočilo je bilo uspešno poslano, kmalu te bomo kontaktirali.</p>
               </div>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit}>
@@ -118,7 +118,7 @@ export function Contact() {
                     name="Ime"
                     required
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
-                    placeholder="Vaše ime in priimek"
+                    placeholder="Tvoje ime in priimek"
                   />
                 </div>
                 <div>
@@ -140,7 +140,7 @@ export function Contact() {
                     required
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
                   >
-                    <option value="">Izberite storitev</option>
+                    <option value="">Izberi storitev</option>
                     <option value="manikura">Manikura</option>
                     <option value="pedikura">Pedikura</option>
                     <option value="depilacija">Depilacija</option>
@@ -178,7 +178,7 @@ export function Contact() {
                   </a>
                 </div>
                 <p className="text-xs text-brand-dark/50 text-center mt-4">
-                  To je samo informativno povpraševanje. Kontaktirali vas bomo za potrditev termina.
+                  To je samo informativno povpraševanje. Kontaktirali te bomo za potrditev termina.
                 </p>
               </form>
             )}

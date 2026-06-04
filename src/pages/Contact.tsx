@@ -143,8 +143,8 @@ export function Contact() {
                     <option value="">Izberi storitev</option>
                     <option value="manikura">Manikura</option>
                     <option value="pedikura">Pedikura</option>
+                    <option value="lash-lift-obrvi">Lash lift in obrvi</option>
                     <option value="depilacija">Depilacija</option>
-                    <option value="obrvi">Obrvi in trepalnice</option>
                     <option value="masaza">Masaža</option>
                     <option value="vec_storitev">Več storitev</option>
                     <option value="posvetovanje">Posvetovanje</option>

@@ -5,7 +5,8 @@ const servicesList = [
     id: 'manikura',
     title: 'Manikura',
     description: 'Pri storitvi manikure poskrbim za urejeno obnohtno kožico, nato odvisno od želje stranke in nohtne plošče, naraven noht pokrijem z izbranim materialom. Zelo rada naredim francosko manikuro, delam pa tudi enostavne poslikave. Pri svojem delu uporabljam kvalitetne materijale in ponujam široko paleto barv. Stranka pride na ponovni obisk v roku 3 - 4 tednov, nega doma pa sloni na uporabi olja in čuvanju nohtov pred mehanskimi poškodbami. Za dobro obstojnost nohtov dam 50% jaz, drugih 50% pa stranka.',
-    image: '/storitev-manikura copy.webp'
+    image: '/storitve-manikura.webp',
+    imagePosition: 'object-[center_80%]'
   },
   {
     id: 'pedikura',
@@ -14,16 +15,10 @@ const servicesList = [
     image: '/storitev-pedikura copy.webp'
   },
   {
-    id: 'vihanje-trepalnic',
-    title: 'Vihanje trepalnic',
-    description: 'Vihanje trepalnic je tehnika s katero privzdignemo naravne trepalnice, po želji lahko trepalnice tudi pobarvamo. Po končani storitvi bodo oči videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Za najboljše rezultate se prvih 24h po tretmaju izogibamo savnam in močenju trepalnic, prav tako ne nanašamo maskare.',
+    id: 'lash-lift-in-obrvi',
+    title: 'Lash lift in obrvi',
+    description: 'Vihanje trepalnic (lash lift) je tehnika s katero privzdignemo naravne trepalnice, po želji lahko trepalnice tudi pobarvamo. Oči bodo videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Pri laminaciji obrvi pa prav tako lahko vključimo barvanje; laminacija pomaga obvladovati dlačice in ustvariti lepo obliko brez gelov. Za najboljše rezultate se prvih 24h po tretmaju izogibamo savnam in močenju.',
     image: '/storitev-vihanje-trepalnic copy.webp'
-  },
-  {
-    id: 'laminacija-obrvi',
-    title: 'Laminacija obrvi',
-    description: 'Pri laminaciji obrvi lahko prav tako vključimo tudi barvanje. Laminacija nam pomaga obvladovati obrvi in narediti lepo obliko brez uporabe gelov, dlačice tako ukrotimo. K storitvi ni vključeno oblikovanje obrvi.',
-    image: '/storitev-vihanje-trepalnic copy.webp' 
   },
   {
     id: 'depilacija',

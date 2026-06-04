@@ -1,24 +1,42 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Heart, CheckCircle, ArrowRight } from 'lucide-react';
+import { Sparkles, Heart, CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 
 const initialReviews = [
-  { text: 'Super si, ful dobre nohtke delas in res se vidi da se izobrazujes redno! 💖💅🏼', name: 'Ula L.', city: 'Ljubljana', initial: 'U' },
-  { text: 'Top of the top, ocena 5', name: 'Ema V.', city: 'Brezovica', initial: 'E' },
-  { text: 'Vedno vesela, nasmejana in družabna, izpolnjuješ želje brez vprašanj. Čista 5 ❤️', name: 'Lejla R.', city: 'Idrija', initial: 'L' },
-  { text: 'Tvoji nohti so mi zmeraj drzali, noben ni nikoli odstopil, tudi ce sem jih imela dlje casa gor se noben ni zlomil, toptoptop', name: 'Zoja B.', city: 'Logatec', initial: 'Z' }
+  { text: 'Meni je ambient super☺️bi mogoče dodala še kakšno ambientno svetlobo😅 Drugače sem pa vedno zelo sproščena in vedno se prilagodiš mojim željam😊', name: 'Brina I.', city: 'Ljubljana', initial: 'B', stars: 4 },
+  { text: 'Top izkusnja vsakic! Na nohte in depilacijo hodim samo se sem, punca je res prijazna, natancna in vsakic naredi res super vzdusje. Vedno se dobro pocutim, rezultat je pa tocno tak, kot si ga zelim. Priporocam vsem, ki iscejo kakovostne storitve in dober in prijeten odnos❤️', name: 'Nina S.', city: 'Ljubljana', initial: 'N', stars: 5 },
+  { text: 'Super si, ful dobre nohtke delas in res se vidi da se izobrazujes redno! 💖💅🏼', name: 'Ula L.', city: 'Ljubljana', initial: 'U', stars: 5 },
+  { text: 'Top of the top, ocena 5', name: 'Ema V.', city: 'Brezovica', initial: 'E', stars: 5 },
+  { text: 'Vedno vesela, nasmejana in družabna, izpolnjuješ želje brez vprašanj. Čista 5 ❤️', name: 'Lejla R.', city: 'Idrija', initial: 'L', stars: 5 },
+  { text: 'Tvoji nohti so mi zmeraj drzali, noben ni nikoli odstopil, tudi ce sem jih imela dlje casa gor se noben ni zlomil, toptoptop', name: 'Zoja B.', city: 'Logatec', initial: 'Z', stars: 5 }
 ];
 
 export function Home() {
   const [reviews, setReviews] = useState(initialReviews);
+  const [activeMobileReview, setActiveMobileReview] = useState(0);
 
   useEffect(() => {
     // Randomize initial array
     const shuffled = [...initialReviews].sort(() => Math.random() - 0.5);
     setReviews(shuffled);
   }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveMobileReview((prev) => (prev + 1) % reviews.length);
+    }, 10000);
+    return () => clearInterval(timer);
+  }, [reviews.length, activeMobileReview]);
+
+  const nextReview = () => {
+    setActiveMobileReview((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setActiveMobileReview((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
 
   return (
     <>
@@ -44,7 +62,7 @@ export function Home() {
               <span className="italic text-brand-taupe">v Adna Cosmetics</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-dark/80 mb-10 max-w-lg leading-relaxed">
-              Manikura, pedikura, depilacija, obrvi, trepalnice in masaža — vse na enem mestu. Rezerviraj svoj termin zdaj.
+              Manikura, pedikura, lash lift in obrvi, depilacija in masaža — vse na enem mestu. Rezerviraj svoj termin zdaj.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -87,14 +105,14 @@ export function Home() {
                 icon: <CheckCircle className="w-6 h-6" />
               },
               {
+                title: 'Lash lift in obrvi',
+                desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudi se urejena.',
+                icon: <Sparkles className="w-6 h-6" />
+              },
+              {
                 title: 'Depilacija',
                 desc: 'Do 4 tedne gladke kože brez britja. Učinkovito voskanje za vse tipe kože.',
                 icon: <Heart className="w-6 h-6" />
-              },
-              {
-                title: 'Obrvi in trepalnice',
-                desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudi se urejena.',
-                icon: <Sparkles className="w-6 h-6" />
               },
               {
                 title: 'Masaža',
@@ -129,10 +147,86 @@ export function Home() {
             </p>
           </div>
           
-          <div className="overflow-hidden py-4 -mx-4 px-4 md:mx-0 md:px-0">
+          {/* Mobile Reviews */}
+          <div className="block md:hidden relative max-w-[100vw] sm:max-w-sm mx-auto px-6 mt-8">
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                {reviews.map((review, idx) => {
+                  if (idx !== activeMobileReview) return null;
+                  return (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                      drag="x"
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.2}
+                      onDragEnd={(e, { offset }) => {
+                        if (offset.x < -50) {
+                          nextReview();
+                        } else if (offset.x > 50) {
+                          prevReview();
+                        }
+                      }}
+                      className="w-full shrink-0 p-6 sm:p-8 border border-brand-nude/50 flex flex-col items-start bg-brand-light/30 rounded-sm cursor-grab active:cursor-grabbing"
+                    >
+                      <div className="flex space-x-1 mb-6">
+                        {Array.from({ length: 5 }).map((_, j) => (
+                           <span key={j} className={`text-lg ${j < review.stars ? 'text-[#D4AF37]' : 'text-gray-300'}`}>★</span>
+                        ))}
+                      </div>
+                      <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed min-h-[160px] text-sm sm:text-base">
+                        "{review.text}"
+                      </p>
+                      <div className="flex items-center space-x-4 mt-auto">
+                        <div className="w-10 h-10 rounded-full bg-brand-nude/40 flex items-center justify-center font-serif text-brand-taupe font-semibold text-lg shrink-0">
+                          {review.initial}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-brand-dark">{review.name}</h4>
+                          <p className="text-xs text-brand-dark/60">{review.city}</p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
+
+              <button 
+                onClick={prevReview} 
+                className="absolute top-1/2 -left-4 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-md border border-brand-nude/50 text-brand-dark hover:bg-brand-nude transition-colors z-10" 
+                aria-label="Prejšnje mnenje"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={nextReview} 
+                className="absolute top-1/2 -right-4 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-md border border-brand-nude/50 text-brand-dark hover:bg-brand-nude transition-colors z-10" 
+                aria-label="Naslednje mnenje"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="flex justify-center mt-6 space-x-2">
+              {reviews.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveMobileReview(idx)}
+                  className={`w-2 h-2 rounded-full transition-colors ${idx === activeMobileReview ? 'bg-brand-taupe' : 'bg-brand-nude'}`}
+                  aria-label={`Mnenje ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Reviews */}
+          <div className="hidden md:block overflow-hidden py-4 -mx-4 px-4 md:mx-0 md:px-0">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ ease: "linear", duration: 36, repeat: Infinity }}
+              transition={{ ease: "linear", duration: 45, repeat: Infinity }}
               style={{ willChange: "transform" }}
               className="flex gap-4 md:gap-6 w-max"
             >
@@ -143,7 +237,7 @@ export function Home() {
                 >
                   <div className="flex space-x-1 mb-6">
                     {Array.from({ length: 5 }).map((_, j) => (
-                       <span key={j} className="text-[#D4AF37] text-lg">★</span>
+                       <span key={j} className={`text-lg ${j < review.stars ? 'text-[#D4AF37]' : 'text-gray-300'}`}>★</span>
                     ))}
                   </div>
                   <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed">

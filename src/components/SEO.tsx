@@ -3,28 +3,32 @@ import { Helmet } from 'react-helmet-async';
 interface SEOProps {
   title: string;
   description: string;
-  keywords?: string;
-  url?: string;
+  path: string;
 }
 
-export function SEO({ title, description, keywords, url }: SEOProps) {
-  const siteName = "Adna Cosmetics";
-  const fullTitle = `${title} | ${siteName}`;
+export function SEO({ title, description, path }: SEOProps) {
+  const siteUrl = "https://www.adnacosmetics.si";
+  const url = `${siteUrl}${path}`;
 
   return (
     <Helmet>
-      <title>{fullTitle}</title>
+      <title>{title}</title>
       <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
-      <meta property="og:title" content={fullTitle} />
+      <link rel="canonical" href={url} />
+      <meta name="robots" content="index, follow" />
+      
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={siteName} />
-      {url && <meta property="og:url" content={url} />}
+      <meta property="og:url" content={url} />
+      <meta property="og:locale" content="sl_SI" />
+      <meta property="og:site_name" content="Adna Cosmetics" />
+      <meta property="og:image" content={`${siteUrl}/backgroundimage.jpg`} />
+      
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <link rel="canonical" href={url || "https://adna-cosmetics.si"} />
+      <meta name="twitter:image" content={`${siteUrl}/backgroundimage.jpg`} />
     </Helmet>
   );
 }

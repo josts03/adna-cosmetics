@@ -12,26 +12,26 @@ const servicesList = [
     id: 'pedikura',
     title: 'Pedikura',
     description: 'Pedikura je izraz, ki označuje urejanje stopal. Stranke, ki se na pedikuro naročijo, si večinoma želijo imeti bolj obstojen lak in bolj natančno nanesen. Jaz z urejanjem obnohtne kožice, krajšanjem in oblikovanjem nohtov poskrbim za bolj lahkoten korak in estetski videz.',
-    image: '/storitev-pedikura copy.webp'
+    image: '/storitev-pedikura.webp'
   },
   {
     id: 'lash-lift-in-obrvi',
     title: 'Lash lift in obrvi',
     description: 'Vihanje trepalnic (lash lift) je tehnika s katero privzdignemo naravne trepalnice, po želji lahko trepalnice tudi pobarvamo. Oči bodo videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Pri laminaciji obrvi pa prav tako lahko vključimo barvanje; laminacija pomaga obvladovati dlačice in ustvariti lepo obliko brez gelov. Za najboljše rezultate se prvih 24h po tretmaju izogibamo savnam in močenju.',
-    image: '/storitev-vihanje-trepalnic copy.webp'
+    image: '/storitev-vihanje-trepalnic.webp'
   },
   {
     id: 'depilacija',
     title: 'Depilacija',
     description: 'S pomočjo vročega voska izpulimo dlačico z mešičkom. Depilacija nam omogoča mehko kožo nekaj tednov, pri redni depilaciji se dlačice stanjšajo, posvetlijo in razredčijo. Po depilaciji se prvih 24-48h izogibamo direktnemu soncu.',
     image: '/storitev-depilacija.webp',
-    imagePosition: 'object-bottom'
+    imagePosition: 'object-top'
   },
   {
     id: 'masaza',
     title: 'Masaža',
     description: 'Klasična masaža telesa vključuje masažo hrbta, rok in nog spredaj in zadaj. 1 ura sprostitve v današnjem hitrem življenju bo vsakemu prav prišla. Za tiste, ki nimajo toliko časa pa obstaja masaža zgornjega hrbta in vratu, ta je krajša in traja 30 min, je kot nalašč za hitro sprostitev.',
-    image: '/storitev-masaza copy.webp',
+    image: '/storitev-masaza.webp',
     imagePosition: 'object-[center_80%]'
   }
 ];
@@ -40,8 +40,9 @@ export function Services() {
   return (
     <>
       <SEO
-        title="Storitve"
-        description="Raznolika ponudba storitev v salonu Adna Cosmetics: Depilacija, urejanje obrvi, lash lift, laminacija obrvi, manikura in sproščujoča masaža."
+        title="Manikura, pedikura, lash lift Vrhnika | Adna Cosmetics"
+        description="Manikura, pedikura, lash lift in obrvi, depilacija ter masaža v salonu Adna Cosmetics na Vrhniki. Profesionalna nega."
+        path="/storitve"
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -62,9 +63,11 @@ export function Services() {
               >
                 <div className="w-full lg:w-1/2 aspect-[4/3] bg-brand-nude/30 relative group overflow-hidden">
                    {service.image ? (
-                     <img 
-                       src={service.image} 
-                       alt={service.title}
+                     <img
+                       src={service.image}
+                       alt={`${service.title} v kozmetičnem salonu Adna Cosmetics Vrhnika`}
+                       loading="lazy"
+                       decoding="async"
                        className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${service.imagePosition || 'object-center'}`}
                      />
                    ) : (

@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Adna Cosmetics
 
-# Run and deploy your AI Studio app
+Spletna stran kozmetičnega salona **Adna Cosmetics** z Vrhnike — predstavitev storitev
+(manikura, pedikura, lash lift in obrvi, depilacija, masaža), cenik in kontaktni obrazec.
 
-This contains everything you need to run your app locally.
+Zgrajeno z React, Vite, TypeScript in Tailwind CSS.
 
-View your app in AI Studio: https://ai.studio/apps/48365d2d-0174-46f2-abec-c17458a15ed3
+## Zagon lokalno
 
-## Run Locally
+**Zahteve:** Node.js 18+
 
-**Prerequisites:**  Node.js
+1. Namesti odvisnosti:
+   ```bash
+   npm install
+   ```
+2. Zaženi razvojni strežnik:
+   ```bash
+   npm run dev
+   ```
+   Stran je dostopna na `http://localhost:3000`.
 
+## Gradnja za produkcijo
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+```bash
+npm run build      # ustvari produkcijsko različico v mapi dist/
+npm run preview    # lokalni predogled produkcijske različice
+```
+
+## Kontaktni obrazec
+
+Obrazec pošilja povpraševanja prek storitve [Formspree](https://formspree.io/).
+Endpoint je nastavljen v `src/pages/Contact.tsx`.

@@ -84,9 +84,10 @@ export function Layout({ children }: LayoutProps) {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-brand-dark"
+            className="md:hidden text-brand-dark p-2 -mr-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={isMenuOpen ? 'Zapri meni' : 'Odpri meni'}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -152,33 +153,33 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Footer */}
       <footer className="bg-brand-dark text-brand-light py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
-          <div className="flex flex-col space-y-4 items-center md:items-start">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 text-center sm:text-left [&>div]:min-w-0">
+          <div className="flex flex-col space-y-4 items-center sm:items-start">
             <Link to="/" className="text-brand-light hover:text-brand-nude transition-colors mb-2">
               <Logo src="/logo_white.png" className="h-20 md:h-24 w-auto" />
             </Link>
-            <p className="text-brand-nude opacity-80 max-w-sm mx-auto md:mx-0">
+            <p className="text-brand-nude opacity-80 max-w-sm mx-auto sm:mx-0">
               Kozmetični salon Adna Cosmetics, kjer lepota sreča strokovnost in poudarja tvojo unikatnost.
             </p>
           </div>
           
           <div className="flex flex-col space-y-4">
             <h4 className="font-serif text-xl mb-2">Kontakt</h4>
-            <p className="flex items-center justify-center md:justify-start gap-2">
+            <p className="flex items-center justify-center sm:justify-start gap-2">
               <MapPin className="w-4 h-4 text-brand-nude" /> Vrhnika
             </p>
-            <a href="mailto:adnaacosmetics@gmail.com" className="flex items-center justify-center md:justify-start gap-2 hover:text-brand-light transition-colors">
-              <Mail className="w-4 h-4 text-brand-nude" /> adnaacosmetics@gmail.com
+            <a href="mailto:adnaacosmetics@gmail.com" className="flex items-center justify-center sm:justify-start gap-2 hover:text-brand-light transition-colors min-w-0">
+              <Mail className="w-4 h-4 text-brand-nude shrink-0" /> <span className="break-all">adnaacosmetics@gmail.com</span>
             </a>
           </div>
 
           <div className="flex flex-col space-y-4">
             <h4 className="font-serif text-xl mb-2">Delovni čas</h4>
             <div className="text-sm space-y-2">
-              <p className="flex justify-center md:justify-start gap-2">
+              <p className="flex justify-center sm:justify-start gap-2">
                 <span>Pon - Pet:</span> <span className="text-brand-nude">Po dogovoru</span>
               </p>
-              <p className="flex justify-center md:justify-start gap-2">
+              <p className="flex justify-center sm:justify-start gap-2">
                 <span>Sob, Ned, prazniki:</span> <span className="text-brand-nude">Zaprto</span>
               </p>
             </div>
@@ -186,15 +187,16 @@ export function Layout({ children }: LayoutProps) {
 
           <div className="flex flex-col space-y-4">
             <h4 className="font-serif text-xl mb-2">Sledi nam</h4>
-            <div className="flex space-x-4 justify-center md:justify-start">
+            <div className="flex space-x-4 justify-center sm:justify-start">
               <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="p-3 border border-brand-nude/30 rounded-full hover:bg-brand-nude/10 hover:border-brand-nude transition-all">
                 <Instagram className="w-5 h-5 text-brand-nude" />
               </a>
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-brand-nude/20 text-center text-sm text-brand-nude/60">
-          &copy; {new Date().getFullYear()} Adna Cosmetics. Vse pravice pridržane.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-brand-nude/20 text-center text-sm text-brand-nude/60 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <span>&copy; {new Date().getFullYear()} Adna Cosmetics. Vse pravice pridržane.</span>
+          <Link to="/politika-zasebnosti" className="hover:text-brand-nude transition-colors">Politika zasebnosti</Link>
         </div>
       </footer>
     </div>

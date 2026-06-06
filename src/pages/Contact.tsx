@@ -5,18 +5,27 @@ import { useState } from 'react';
 export function Contact() {
   const [succeeded, setSucceeded] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitting(true);
-    
+    setError(null);
+
     const form = e.currentTarget;
     const data = new FormData(form);
+
+    // Spam protection: če je skrito polje (honeypot) izpolnjeno, gre za bota.
+    if (data.get('_gotcha')) {
+      setSucceeded(true);
+      return;
+    }
+
     const params = new URLSearchParams();
     for (const [key, value] of data.entries()) {
       params.append(key, value.toString());
     }
-    
+
+    setSubmitting(true);
     try {
       const response = await fetch("https://formspree.io/f/mjgzkgnz", {
         method: "POST",
@@ -26,15 +35,14 @@ export function Contact() {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       });
-      
+
       if (response.ok) {
         setSucceeded(true);
       } else {
-        // Fallback error handling if needed, though formspree usually returns OK
-        console.error("Formspree submission failed");
+        setError('Pri pošiljanju je prišlo do napake. Poskusi znova ali nas kontaktiraj po e-pošti.');
       }
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      setError('Sporočila ni bilo mogoče poslati. Preveri internetno povezavo in poskusi znova.');
     } finally {
       setSubmitting(false);
     }
@@ -43,8 +51,9 @@ export function Contact() {
   return (
     <>
       <SEO
-        title="Kontakt in Naročanje"
-        description="Stopi v stik z nami in si rezerviraj svoj termin. Nahajamo se na Vrhniki."
+        title="Naroči se | Adna Cosmetics Vrhnika"
+        description="Rezerviraj termin v salonu Adna Cosmetics na Vrhniki. Pišite nam ali se naročite prek obrazca."
+        path="/kontakt"
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -94,7 +103,14 @@ export function Contact() {
                 <Clock className="w-6 h-6 text-brand-taupe mr-4 mt-1" />
                 <div>
                   <h3 className="font-semibold text-lg text-brand-dark mb-1">Delovni čas</h3>
-                  <p className="text-brand-dark/70">Po dogovoru / Naročilu</p>
+                  <div className="text-brand-dark/70 space-y-1">
+                    <p className="flex gap-2">
+                      <span>Pon - Pet:</span> <span className="text-brand-taupe">Po dogovoru</span>
+                    </p>
+                    <p className="flex gap-2">
+                      <span>Sob, Ned, prazniki:</span> <span className="text-brand-taupe">Zaprto</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -117,6 +133,7 @@ export function Contact() {
                     id="name"
                     name="Ime"
                     required
+                    autoComplete="name"
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
                     placeholder="Tvoje ime in priimek"
                   />
@@ -128,6 +145,10 @@ export function Contact() {
                     id="phone"
                     name="Telefon"
                     required
+                    inputMode="tel"
+                    autoComplete="tel"
+                    pattern="[0-9+\s()/-]{6,20}"
+                    title="Vnesi veljavno telefonsko številko (npr. 041 123 456)."
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
                     placeholder="041 123 456"
                   />
@@ -160,6 +181,23 @@ export function Contact() {
                     placeholder="Želeni datum in ura, ali druga vprašanja..."
                   ></textarea>
                 </div>
+
+                {/* Honeypot polje za zaščito pred neželeno pošto – skrito pred uporabniki */}
+                <input
+                  type="text"
+                  name="_gotcha"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+
+                {error && (
+                  <p role="alert" className="text-sm text-red-800 bg-red-50 border border-red-200 px-4 py-3">
+                    {error}
+                  </p>
+                )}
+
                 <div className="flex flex-col gap-4">
                   <button
                     type="submit"

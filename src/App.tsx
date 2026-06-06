@@ -11,6 +11,8 @@ import { About } from './pages/About';
 import { Services } from './pages/Services';
 import { Pricelist } from './pages/Pricelist';
 import { Contact } from './pages/Contact';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { CookieBanner } from './components/CookieBanner';
 
 export default function App() {
   return (
@@ -23,8 +25,10 @@ export default function App() {
             <Route path="/storitve" element={<Services />} />
             <Route path="/cenik" element={<Pricelist />} />
             <Route path="/kontakt" element={<Contact />} />
+            <Route path="/politika-zasebnosti" element={<PrivacyPolicy />} />
           </Routes>
         </Layout>
+        <CookieBanner />
       </Router>
     </HelmetProvider>
   );

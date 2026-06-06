@@ -4,8 +4,9 @@ export function About() {
   return (
     <>
       <SEO
-        title="O meni"
-        description="Spoznaj mene in mojo vizijo. Adna Cosmetics je salon na Vrhniki z dolgoletnimi izkušnjami in certifikati s področja lepote."
+        title="O salonu | Adna Cosmetics Vrhnika"
+        description="Spoznaj zgodbo salona Adna Cosmetics in več kot 5 let izkušenj na področju profesionalne lepotne nege na Vrhniki."
+        path="/o-meni"
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -32,9 +33,11 @@ export function About() {
             <div className="relative w-full">
               <div className="absolute inset-0 bg-brand-nude translate-x-4 translate-y-4"></div>
               <div className="relative bg-brand-dark/5 overflow-hidden border border-brand-rose group">
-                <img 
-                  src="/profilna-slika.webp" 
-                  alt="Adna, ustanoviteljica salona" 
+                <img
+                  src="/profilna-slika.webp"
+                  alt="Adna, ustanoviteljica salona Adna Cosmetics na Vrhniki"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto block transition-transform duration-700 group-hover:scale-105"
                 />
               </div>

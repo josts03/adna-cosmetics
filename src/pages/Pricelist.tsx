@@ -47,8 +47,9 @@ export function Pricelist() {
   return (
     <>
       <SEO
-        title="Cenik"
-        description="Aktualni cenik vseh storitev salona Adna Cosmetics. Preveri cene depilacije, nege nohtov, urejanja obrvi in trepalnic."
+        title="Cenik storitev | Adna Cosmetics Vrhnika"
+        description="Transparenten cenik storitev salona Adna Cosmetics – manikura od 25€, pedikura, lash lift, depilacija in masaža."
+        path="/cenik"
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -71,11 +72,13 @@ export function Pricelist() {
                   <span className="text-lg text-brand-dark/80 group-hover:text-brand-taupe transition-colors">{item.name}</span>
                   <div className="flex-grow border-b border-dotted border-brand-taupe/30 mx-4"></div>
                   <span className="text-lg font-medium text-brand-dark whitespace-nowrap">{item.price}</span>
-                  <Link to="/kontakt" className="ml-4 px-4 py-2 border border-brand-dark text-brand-dark uppercase tracking-widest text-xs hover:bg-brand-dark hover:text-brand-light transition-colors whitespace-nowrap">Naroči se</Link>
                 </div>
               ))}
             </div>
-            <p className="text-sm text-brand-taupe italic mt-6 flex items-start">
+            <div className="mt-8 text-center">
+              <Link to="/kontakt" className="inline-block px-8 py-3 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-nude transition-colors">Naroči se</Link>
+            </div>
+            <p className="text-sm text-brand-taupe italic mt-8 flex items-start">
               <AlertCircle className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" /> 
               <span>Opomba: Korekcij tujega dela ne izvajam. Reklamacije so možne 48h po tretmaju.</span>
             </p>
@@ -90,9 +93,11 @@ export function Pricelist() {
                   <span className="text-lg text-brand-dark/80 group-hover:text-brand-taupe transition-colors">{item.name}</span>
                   <div className="flex-grow border-b border-dotted border-brand-taupe/30 mx-4"></div>
                   <span className="text-lg font-medium text-brand-dark whitespace-nowrap">{item.price}</span>
-                  <Link to="/kontakt" className="ml-4 px-4 py-2 border border-brand-dark text-brand-dark uppercase tracking-widest text-xs hover:bg-brand-dark hover:text-brand-light transition-colors whitespace-nowrap">Naroči se</Link>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link to="/kontakt" className="inline-block px-8 py-3 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-nude transition-colors">Naroči se</Link>
             </div>
           </div>
 
@@ -105,11 +110,13 @@ export function Pricelist() {
                   <span className="text-lg text-brand-dark/80 group-hover:text-brand-taupe transition-colors">{item.name}</span>
                   <div className="flex-grow border-b border-dotted border-brand-taupe/30 mx-4"></div>
                   <span className="text-lg font-medium text-brand-dark whitespace-nowrap">{item.price}</span>
-                  <Link to="/kontakt" className="ml-4 px-4 py-2 border border-brand-dark text-brand-dark uppercase tracking-widest text-xs hover:bg-brand-dark hover:text-brand-light transition-colors whitespace-nowrap">Naroči se</Link>
                 </div>
               ))}
             </div>
-            <p className="text-sm text-brand-taupe italic mt-6 flex items-center">
+            <div className="mt-8 text-center">
+              <Link to="/kontakt" className="inline-block px-8 py-3 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-nude transition-colors">Naroči se</Link>
+            </div>
+            <p className="text-sm text-brand-taupe italic mt-8 flex items-center">
               <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termine prosim pridi brez maskare.
             </p>
           </div>
@@ -123,9 +130,11 @@ export function Pricelist() {
                   <span className="text-lg text-brand-dark/80 group-hover:text-brand-taupe transition-colors">{item.name}</span>
                   <div className="flex-grow border-b border-dotted border-brand-taupe/30 mx-4"></div>
                   <span className="text-lg font-medium text-brand-dark whitespace-nowrap">{item.price}</span>
-                  <Link to="/kontakt" className="ml-4 px-4 py-2 border border-brand-dark text-brand-dark uppercase tracking-widest text-xs hover:bg-brand-dark hover:text-brand-light transition-colors whitespace-nowrap">Naroči se</Link>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link to="/kontakt" className="inline-block px-8 py-3 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-nude transition-colors">Naroči se</Link>
             </div>
           </div>
 
@@ -138,9 +147,11 @@ export function Pricelist() {
                   <span className="text-lg text-brand-dark/80 group-hover:text-brand-taupe transition-colors">{item.name}</span>
                   <div className="flex-grow border-b border-dotted border-brand-taupe/30 mx-4"></div>
                   <span className="text-lg font-medium text-brand-dark whitespace-nowrap">{item.price}</span>
-                  <Link to="/kontakt" className="ml-4 px-4 py-2 border border-brand-dark text-brand-dark uppercase tracking-widest text-xs hover:bg-brand-dark hover:text-brand-light transition-colors whitespace-nowrap">Naroči se</Link>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <Link to="/kontakt" className="inline-block px-8 py-3 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-nude transition-colors">Naroči se</Link>
             </div>
           </div>
           

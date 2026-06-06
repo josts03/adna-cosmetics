@@ -5,6 +5,7 @@ import { SEO } from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 
 const initialReviews = [
+  { text: 'Samozavestna punca k ve kaj dela, tvoja sproscenost se pa cuti ze ko vstopis v salon in zato je sama storitev bolj prijetna😙.', name: 'Nika P.', city: 'Vrhnika', initial: 'N', stars: 5 },
   { text: 'Meni je ambient super☺️bi mogoče dodala še kakšno ambientno svetlobo😅 Drugače sem pa vedno zelo sproščena in vedno se prilagodiš mojim željam😊', name: 'Brina I.', city: 'Ljubljana', initial: 'B', stars: 4 },
   { text: 'Top izkusnja vsakic! Na nohte in depilacijo hodim samo se sem, punca je res prijazna, natancna in vsakic naredi res super vzdusje. Vedno se dobro pocutim, rezultat je pa tocno tak, kot si ga zelim. Priporocam vsem, ki iscejo kakovostne storitve in dober in prijeten odnos❤️', name: 'Nina S.', city: 'Ljubljana', initial: 'N', stars: 5 },
   { text: 'Super si, ful dobre nohtke delas in res se vidi da se izobrazujes redno! 💖💅🏼', name: 'Ula L.', city: 'Ljubljana', initial: 'U', stars: 5 },
@@ -41,13 +42,13 @@ export function Home() {
   return (
     <>
       <SEO
-        title="Domov"
-        description="Adna Cosmetics - Tvoj salon lepote na Vrhniki. Nudimo depilacijo, nego obrvi in trepalnic, manikuro in masažo."
-        keywords="kozmetični salon Vrhnika, Adna Cosmetics, depilacija Vrhnika, urejanje obrvi Vrhnika, manikura Vrhnika"
+        title="Adna Cosmetics – Kozmetični salon Vrhnika"
+        description="Kozmetični salon Adna Cosmetics na Vrhniki. Manikura, pedikura, lash lift in obrvi, depilacija in masaža. Rezerviraj svoj termin."
+        path="/"
       />
       
       {/* Hero Section */}
-      <section className="relative bg-brand-nude overflow-hidden h-[80vh] flex items-center md:bg-[url('/backgroundimage.png')] md:bg-cover md:bg-center md:bg-no-repeat">
+      <section className="relative bg-brand-nude overflow-hidden h-[80vh] flex items-center md:bg-[url('/backgroundimage.jpg')] md:bg-cover md:bg-[center_25%] md:bg-no-repeat">
         {/* Placeholder background image pattern */}
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] mix-blend-multiply md:hidden"></div>
         <div className="absolute right-0 top-0 w-1/2 h-full bg-brand-rose opacity-20 blur-3xl transform translate-x-1/4 -skew-x-12 md:hidden"></div>
@@ -148,7 +149,7 @@ export function Home() {
           </div>
           
           {/* Mobile Reviews */}
-          <div className="block md:hidden relative max-w-[100vw] sm:max-w-sm mx-auto px-6 mt-8">
+          <div className="block lg:hidden relative max-w-[100vw] sm:max-w-md md:max-w-lg mx-auto px-6 mt-8">
             <div className="relative">
               <AnimatePresence mode="wait">
                 {reviews.map((review, idx) => {
@@ -223,10 +224,10 @@ export function Home() {
           </div>
 
           {/* Desktop Reviews */}
-          <div className="hidden md:block overflow-hidden py-4 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="hidden lg:block overflow-hidden py-4 -mx-4 px-4 md:mx-0 md:px-0">
             <motion.div
               animate={{ x: ["0%", "-50%"] }}
-              transition={{ ease: "linear", duration: 45, repeat: Infinity }}
+              transition={{ ease: "linear", duration: 60, repeat: Infinity }}
               style={{ willChange: "transform" }}
               className="flex gap-4 md:gap-6 w-max"
             >
@@ -291,10 +292,12 @@ export function Home() {
           <div className="relative h-[600px] w-full">
             <div className="absolute inset-0 bg-brand-rose/20 rounded-t-full transform rotate-3"></div>
             <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden group">
-              <img 
-                src="/salon-osebje copy.webp" 
-                alt="Adna, ustanoviteljica salona" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              <img
+                src="/salon-osebje.webp"
+                alt="Adna, ustanoviteljica salona Adna Cosmetics na Vrhniki"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             

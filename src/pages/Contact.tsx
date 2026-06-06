@@ -39,7 +39,7 @@ export function Contact() {
       if (response.ok) {
         setSucceeded(true);
       } else {
-        setError('Pri pošiljanju je prišlo do napake. Poskusi znova ali nas kontaktiraj po e-pošti.');
+        setError('Pri pošiljanju je prišlo do napake. Poskusi znova ali me kontaktiraj po e-pošti.');
       }
     } catch (err) {
       setError('Sporočila ni bilo mogoče poslati. Preveri internetno povezavo in poskusi znova.');
@@ -75,7 +75,7 @@ export function Contact() {
                 <MapPin className="w-6 h-6 text-brand-taupe mr-4 mt-1" />
                 <div>
                   <h3 className="font-semibold text-lg text-brand-dark mb-1">Lokacija</h3>
-                  <p className="text-brand-dark/70">Vrhnika<br/>Natančen naslov ob naročilu</p>
+                  <p className="text-brand-dark/70">Vrhnika<br/>Natančen naslov posredujem ob rezervaciji termina.</p>
                 </div>
               </div>
 
@@ -122,7 +122,7 @@ export function Contact() {
               <div className="bg-brand-nude/20 p-8 border border-brand-nude text-center">
                 <CheckCircle className="w-12 h-12 text-brand-taupe mx-auto mb-4" />
                 <h3 className="text-2xl font-serif text-brand-dark mb-2">Hvala za povpraševanje!</h3>
-                <p className="text-brand-dark/80">Tvoje sporočilo je bilo uspešno poslano, kmalu te bomo kontaktirali.</p>
+                <p className="text-brand-dark/80">Tvoje sporočilo je bilo uspešno poslano, kmalu te kontaktiram.</p>
               </div>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit}>
@@ -216,7 +216,7 @@ export function Contact() {
                   </a>
                 </div>
                 <p className="text-xs text-brand-dark/50 text-center mt-4">
-                  To je samo informativno povpraševanje. Kontaktirali te bomo za potrditev termina.
+                  To je samo informativno povpraševanje. Za potrditev in rezervacijo termina te kontaktiram! :)
                 </p>
               </form>
             )}

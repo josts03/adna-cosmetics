@@ -80,7 +80,7 @@ export function Pricelist() {
             </div>
             <p className="text-sm text-brand-taupe italic mt-8 flex items-start">
               <AlertCircle className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" /> 
-              <span>Opomba: Korekcij tujega dela ne izvajam. Reklamacije so možne 48h po tretmaju.</span>
+              <span>Opomba: Cena korekcije je enaka ceni podaljševanja. Korekcij tujega dela ne izvajam. Reklamacije so možne 48h po tretmaju.</span>
             </p>
           </div>
 

@@ -43,7 +43,7 @@ export function Home() {
     <>
       <SEO
         title="Adna Cosmetics – Kozmetični salon Vrhnika"
-        description="Kozmetični salon Adna Cosmetics na Vrhniki. Manikura, pedikura, lash lift in obrvi, depilacija in masaža. Rezerviraj svoj termin."
+        description="Kozmetični salon Adna Cosmetics na Vrhniki. Manikura, pedikura, lash lift in laminacija obrvi, depilacija in masaža. Rezerviraj svoj termin."
         path="/"
       />
       
@@ -63,7 +63,7 @@ export function Home() {
               <span className="italic text-brand-taupe">v Adna Cosmetics</span>
             </h1>
             <p className="text-lg md:text-xl text-brand-dark/80 mb-10 max-w-lg leading-relaxed">
-              Manikura, pedikura, lash lift in obrvi, depilacija in masaža — vse na enem mestu. Rezerviraj svoj termin zdaj.
+              Manikura, pedikura, lash lift in laminacija obrvi, depilacija in masaža — vse na enem mestu. Rezerviraj svoj termin zdaj.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -76,7 +76,7 @@ export function Home() {
                 to="/storitve"
                 className="px-8 py-4 border border-brand-dark text-brand-dark uppercase tracking-widest text-sm hover:bg-brand-dark hover:text-brand-light transition-colors text-center"
               >
-                Naše storitve
+                Moje storitve
               </Link>
             </div>
           </div>
@@ -87,7 +87,7 @@ export function Home() {
       <section className="py-24 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl font-serif mb-4">Kaj ponujamo?</h2>
+            <h2 className="text-4xl font-serif mb-4">Kaj ponujam?</h2>
             <p className="text-brand-dark/70">
               Celovita ponudba lepotnih storitev za tvoj popoln videz.
             </p>
@@ -268,11 +268,11 @@ export function Home() {
               Zakaj Adna Cosmetics?
             </span>
             <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-              Kaj nas odlikuje?
+              Kaj me odlikuje?
             </h2>
             <div className="space-y-6">
               {[
-                'Strokovno in prijazno osebje',
+                'Strokovna in prijazna obravnava',
                 'Individualen pristop k vsaki stranki',
                 'Uporaba visokokakovostnih produktov',
                 'Sproščujoč in čist ambient'
@@ -325,7 +325,7 @@ export function Home() {
             Rezerviraj svoj termin →
           </Link>
           <p className="text-brand-light/60 text-sm">
-            Ali nas kontaktiraj: <a href="mailto:adnaacosmetics@gmail.com" className="underline hover:text-brand-light">adnaacosmetics@gmail.com</a>
+            Ali me kontaktiraj: <a href="mailto:adnaacosmetics@gmail.com" className="underline hover:text-brand-light">adnaacosmetics@gmail.com</a>
           </p>
         </div>
       </section>

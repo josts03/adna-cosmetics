@@ -17,13 +17,13 @@ const servicesList = [
   {
     id: 'lash-lift-in-obrvi',
     title: 'Lash lift in obrvi',
-    description: 'Vihanje trepalnic (lash lift) je tehnika s katero privzdignemo naravne trepalnice, po želji lahko trepalnice tudi pobarvamo. Oči bodo videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Pri laminaciji obrvi pa prav tako lahko vključimo barvanje; laminacija pomaga obvladovati dlačice in ustvariti lepo obliko brez gelov. Za najboljše rezultate se prvih 24h po tretmaju izogibamo savnam in močenju.',
+    description: 'Vihanje trepalnic (lash lift) je tehnika s katero privzdignem naravne trepalnice, po želji lahko trepalnice tudi pobarvam. Oči bodo videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Pri laminaciji obrvi pa prav tako lahko vključim barvanje; laminacija pomaga obvladovati dlačice in ustvariti lepo obliko brez gelov. Za najboljše rezultate se prvih 24h po tretmaju izogibaj savnam in močenju.',
     image: '/storitev-vihanje-trepalnic.webp'
   },
   {
     id: 'depilacija',
     title: 'Depilacija',
-    description: 'S pomočjo vročega voska izpulimo dlačico z mešičkom. Depilacija nam omogoča mehko kožo nekaj tednov, pri redni depilaciji se dlačice stanjšajo, posvetlijo in razredčijo. Po depilaciji se prvih 24-48h izogibamo direktnemu soncu.',
+    description: 'S pomočjo vročega voska izpulim dlačico z mešičkom. Depilacija omogoča mehko kožo nekaj tednov, pri redni depilaciji se dlačice stanjšajo, posvetlijo in razredčijo. Po depilaciji se prvih 24-48h izogibaj direktnemu soncu.',
     image: '/storitev-depilacija.webp',
     imagePosition: 'object-top'
   },
@@ -41,12 +41,12 @@ export function Services() {
     <>
       <SEO
         title="Manikura, pedikura, lash lift Vrhnika | Adna Cosmetics"
-        description="Manikura, pedikura, lash lift in obrvi, depilacija ter masaža v salonu Adna Cosmetics na Vrhniki. Profesionalna nega."
+        description="Manikura, pedikura, lash lift in laminacija obrvi, depilacija ter masaža v salonu Adna Cosmetics na Vrhniki. Profesionalna nega."
         path="/storitve"
       />
       <div className="pt-24 pb-16 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-serif text-brand-dark mb-6">Naše storitve</h1>
+          <h1 className="text-5xl md:text-6xl font-serif text-brand-dark mb-6">Moje storitve</h1>
           <p className="max-w-2xl mx-auto text-brand-dark/70 text-lg">
             Prepusti se strokovnim rokam in uživaj v vrhunskih lepotnih tretmajih.
           </p>

@@ -52,7 +52,7 @@ export function Contact() {
     <>
       <SEO
         title="Naroči se | Adna Cosmetics Vrhnika"
-        description="Rezerviraj termin v salonu Adna Cosmetics na Vrhniki. Pišite nam ali se naročite prek obrazca."
+        description="Rezerviraj termin v salonu Adna Cosmetics na Vrhniki. Piši mi ali se naroči prek obrazca."
         path="/kontakt"
       />
       <div className="pt-24 pb-16 bg-brand-light">
@@ -164,7 +164,7 @@ export function Contact() {
                     <option value="">Izberi storitev</option>
                     <option value="manikura">Manikura</option>
                     <option value="pedikura">Pedikura</option>
-                    <option value="lash-lift-obrvi">Lash lift in obrvi</option>
+                    <option value="lash-lift-obrvi">Lash lift in laminacija obrvi</option>
                     <option value="depilacija">Depilacija</option>
                     <option value="masaza">Masaža</option>
                     <option value="vec_storitev">Več storitev</option>

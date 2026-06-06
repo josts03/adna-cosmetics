@@ -56,7 +56,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="max-w-2xl">
             <span className="uppercase tracking-[0.2em] text-brand-dark/70 text-sm font-semibold mb-4 block">
-              Dobrodošli
+              Dobrodošla
             </span>
             <h1 className="text-5xl md:text-7xl font-serif text-brand-dark leading-tight mb-6">
               Bodi vse, kar si <br/>
@@ -89,7 +89,7 @@ export function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-4xl font-serif mb-4">Kaj ponujam?</h2>
             <p className="text-brand-dark/70">
-              Celovita ponudba lepotnih storitev za tvoj popoln videz.
+              Skrbim za tvoj videz od nog do glave — vse na enem mestu.
             </p>
           </div>
 
@@ -144,7 +144,7 @@ export function Home() {
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-4xl font-serif mb-4">Mnenja strank</h2>
             <p className="text-brand-dark/70">
-              Pridruži se zadovoljnim strankam z Vrhnike in okolice.
+              Kar pravijo moje stranke.
             </p>
           </div>
           

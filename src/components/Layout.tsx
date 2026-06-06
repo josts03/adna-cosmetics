@@ -159,7 +159,7 @@ export function Layout({ children }: LayoutProps) {
               <Logo src="/logo_white.png" className="h-20 md:h-24 w-auto" />
             </Link>
             <p className="text-brand-nude opacity-80 max-w-sm mx-auto sm:mx-0">
-              Kozmetični salon Adna Cosmetics, kjer lepota sreča strokovnost in poudarja tvojo unikatnost.
+              V svojem kotičku lepote ti posvečam vso pozornost in poskrbim, da odideš bolj samozavestna.
             </p>
           </div>
           
@@ -186,7 +186,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="flex flex-col space-y-4">
-            <h4 className="font-serif text-xl mb-2">Sledi nam</h4>
+            <h4 className="font-serif text-xl mb-2">Sledi mi</h4>
             <div className="flex space-x-4 justify-center sm:justify-start">
               <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="p-3 border border-brand-nude/30 rounded-full hover:bg-brand-nude/10 hover:border-brand-nude transition-all">
                 <Instagram className="w-5 h-5 text-brand-nude" />

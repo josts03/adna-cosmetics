@@ -19,23 +19,23 @@ export function PrivacyPolicy() {
 
         <div className="prose prose-brand max-w-none text-brand-dark/80 whitespace-pre-line leading-relaxed">
           <p className="mb-6">
-            Vaša zasebnost nam je zelo pomembna. V kozmetičnem salonu Adna Cosmetics (v nadaljevanju "mi", "naš", "salon") se zavezujemo, da bomo vaše osebne podatke varovali v skladu z veljavno zakonodajo o varstvu osebnih podatkov (Splošna uredba o varstvu podatkov - GDPR in Zakon o varstvu osebnih podatkov - ZVOP-2).
+            Vaša zasebnost mi je zelo pomembna. V kozmetičnem salonu <strong>Adna Cosmetics</strong> (v nadaljevanju: "salon") se zavezujem, da bom vaše osebne podatke varovala v skladu z veljavno zakonodajo o varstvu osebnih podatkov (Splošna uredba o varstvu podatkov – GDPR in Zakon o varstvu osebnih podatkov – ZVOP-2).
           </p>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">1. Katere osebne podatke zbiramo?</h2>
           <p className="mb-6">
-            Zbiramo samo tiste osebne podatke, ki nam jih neposredno in prostovoljno posredujete prek našega kontaktnega obrazca ali ob narocanju:
+            Zbiram samo tiste osebne podatke, ki mi jih neposredno in prostovoljno posredujete prek kontaktnega obrazca ali ob naročanju:
           </p>
           <ul className="list-disc pl-6 mb-6">
             <li>Ime in priimek</li>
             <li>Telefonska številka</li>
-            <li>Elektronski naslov (če nas kontaktirate po e-pošti ali obrazcu)</li>
-            <li>Druge informacije, ki jih vključite v vaše sporočilo (npr. želene storitve ali posebne potrbe)</li>
+            <li>Elektronski naslov (če me kontaktirate po e-pošti ali prek obrazca)</li>
+            <li>Druge informacije, ki jih vključite v svoje sporočilo (npr. želene storitve ali posebne potrebe)</li>
           </ul>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">2. Namen obdelave osebnih podatkov</h2>
           <p className="mb-6">
-            Vaše osebne podatke uporabljamo <strong>izključno</strong> za naslednje namene:
+            Vaše osebne podatke uporabljam <strong>izključno</strong> za naslednje namene:
           </p>
           <ul className="list-disc pl-6 mb-6">
             <li>Potrditev vašega termina za storitve.</li>
@@ -43,17 +43,17 @@ export function PrivacyPolicy() {
             <li>Odgovarjanje na vaša povpraševanja in vprašanja.</li>
           </ul>
           <p className="mb-6">
-            Vaših podatkov v nobenem primeru ne uporabljamo za pošiljanje neželene oglasne pošte in jih ne uporabljamo za namene neposrednega trženja brez vaše izrecne privolitve.
+            Vaših podatkov v nobenem primeru ne uporabljam za pošiljanje neželene oglasne pošte in jih ne obdelujte za namene neposrednega trženja brez vaše izrecne privolitve.
           </p>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">3. Deljenje podatkov s tretjimi osebami</h2>
           <p className="mb-6">
-            Vaše osebne podatke skrbno varujemo in jih <strong>ne delimo</strong>, ne prodajamo in ne oddajamo v najem nobenim tretjim osebam.
+            Vaše osebne podatke skrbno varujemo in jih <strong>ne delim</strong>, ne prodajam ter ne oddajam v najem nobenim tretjim osebam.
           </p>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">4. Hramba podatkov</h2>
           <p className="mb-6">
-            Vaše osebne podatke hranimo le toliko časa, kolikor je to potrebno za izpolnitev namena, za katerega so bili zbrani (tj. za izvedbo storitve in morebitno poznejšo komunikacijo glede termina). Po preteku tega obdobja podatke varno in trajno izbrišemo.
+            Vaše osebne podatke hranim le toliko časa, kolikor je to potrebno za izpolnitev namena, za katerega so bili zbrani (tj. za izvedbo storitve in morebitno poznejšo komunikacijo glede termina). Po preteku tega obdobja podatke varno in trajno izbrišem.
           </p>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">5. Vaše pravice</h2>
@@ -61,13 +61,13 @@ export function PrivacyPolicy() {
             V zvezi z vašimi osebnimi podatki imate naslednje pravice:
           </p>
           <ul className="list-disc pl-6 mb-6">
-            <li>Pravica do dostopa do informacij o tem, katere podatke zbiramo.</li>
+            <li>Pravica do dostopa do informacij o tem, katere podatke zbiram.</li>
             <li>Pravica do popravka netočnih podatkov.</li>
             <li>Pravica do izbrisa ("pravica do pozabe").</li>
             <li>Pravica do omejitve obdelave in ugovora zoper obdelavo.</li>
           </ul>
           <p>
-            Če želite uveljavljati katerega od teh pravic ali imate kakršnokoli vprašanje glede naše politike zasebnosti, nas prosim kontaktirajte na elektronski naslov <strong>adnaacosmetics@gmail.com</strong>.
+            Če želite uveljavljati katero od teh pravic ali imate kakršnokoli vprašanje glede politike zasebnosti, me prosim kontaktirajte na elektronski naslov: <strong>adnaacosmetics@gmail.com</strong>.
           </p>
         </div>
       </div>

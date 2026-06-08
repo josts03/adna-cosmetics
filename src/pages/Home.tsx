@@ -83,6 +83,55 @@ export function Home() {
         </div>
       </section>
 
+      {/* Why Choose Us */}
+      <section className="py-24 bg-brand-nude">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="uppercase tracking-[0.2em] text-brand-dark/70 text-sm font-semibold mb-4 block">
+              Zakaj Adna Cosmetics?
+            </span>
+            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
+              Kaj me odlikuje?
+            </h2>
+            <div className="space-y-6">
+              {[
+                'Strokovna in prijazna obravnava',
+                'Individualen pristop k vsaki stranki',
+                'Uporaba visokokakovostnih produktov',
+                'Sproščujoč in čist ambient'
+              ].map((item, i) => (
+                <div key={i} className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-brand-taupe mr-4 flex-shrink-0 mt-1" />
+                  <p className="text-lg text-brand-dark/80">{item}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12">
+              <Link to="/o-meni" className="px-8 py-4 bg-transparent border border-brand-dark text-brand-dark uppercase tracking-widest text-sm hover:bg-brand-dark hover:text-brand-light transition-colors">
+                Spoznaj me
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-[600px] w-full">
+            <div className="absolute inset-0 bg-brand-rose/20 rounded-t-full transform rotate-3"></div>
+            <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden group">
+              <img
+                src="/salon-osebje.webp"
+                alt="Adna, ustanoviteljica salona Adna Cosmetics na Vrhniki"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            
+            <div className="absolute -bottom-6 left-1/2 min-w-[280px] sm:min-w-[320px] -translate-x-1/2 bg-white px-6 sm:px-8 py-5 sm:py-6 shadow-xl text-center rounded-sm">
+              <p className="font-serif text-lg sm:text-xl text-brand-dark mb-2">Adna, ustanoviteljica z 5+ let izkušenj.</p>
+              <p className="text-brand-dark/70 italic text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">"Moje poslanstvo je, da vsaka stranka zapusti salon bolj samozavestna, kot je prišla."</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Snippet */}
       <section className="py-24 bg-brand-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -147,7 +196,7 @@ export function Home() {
               Kar pravijo moje stranke.
             </p>
           </div>
-          
+
           {/* Mobile Reviews */}
           <div className="block lg:hidden relative max-w-[100vw] sm:max-w-md md:max-w-lg mx-auto px-6 mt-8">
             <div className="relative">
@@ -195,16 +244,16 @@ export function Home() {
                 })}
               </AnimatePresence>
 
-              <button 
-                onClick={prevReview} 
-                className="absolute top-1/2 -left-4 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-md border border-brand-nude/50 text-brand-dark hover:bg-brand-nude transition-colors z-10" 
+              <button
+                onClick={prevReview}
+                className="absolute top-1/2 -left-4 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-md border border-brand-nude/50 text-brand-dark hover:bg-brand-nude transition-colors z-10"
                 aria-label="Prejšnje mnenje"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <button 
-                onClick={nextReview} 
-                className="absolute top-1/2 -right-4 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-md border border-brand-nude/50 text-brand-dark hover:bg-brand-nude transition-colors z-10" 
+              <button
+                onClick={nextReview}
+                className="absolute top-1/2 -right-4 -translate-y-1/2 p-2 rounded-full bg-white/90 shadow-md border border-brand-nude/50 text-brand-dark hover:bg-brand-nude transition-colors z-10"
                 aria-label="Naslednje mnenje"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -256,55 +305,6 @@ export function Home() {
                 </div>
               ))}
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-24 bg-brand-nude">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <span className="uppercase tracking-[0.2em] text-brand-dark/70 text-sm font-semibold mb-4 block">
-              Zakaj Adna Cosmetics?
-            </span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-6 leading-tight">
-              Kaj me odlikuje?
-            </h2>
-            <div className="space-y-6">
-              {[
-                'Strokovna in prijazna obravnava',
-                'Individualen pristop k vsaki stranki',
-                'Uporaba visokokakovostnih produktov',
-                'Sproščujoč in čist ambient'
-              ].map((item, i) => (
-                <div key={i} className="flex items-start">
-                  <CheckCircle className="w-6 h-6 text-brand-taupe mr-4 flex-shrink-0 mt-1" />
-                  <p className="text-lg text-brand-dark/80">{item}</p>
-                </div>
-              ))}
-            </div>
-            <div className="mt-12">
-              <Link to="/o-meni" className="px-8 py-4 bg-transparent border border-brand-dark text-brand-dark uppercase tracking-widest text-sm hover:bg-brand-dark hover:text-brand-light transition-colors">
-                Spoznaj me
-              </Link>
-            </div>
-          </div>
-          <div className="relative h-[600px] w-full">
-            <div className="absolute inset-0 bg-brand-rose/20 rounded-t-full transform rotate-3"></div>
-            <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden group">
-              <img
-                src="/salon-osebje.webp"
-                alt="Adna, ustanoviteljica salona Adna Cosmetics na Vrhniki"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-            
-            <div className="absolute -bottom-6 left-1/2 min-w-[280px] sm:min-w-[320px] -translate-x-1/2 bg-white px-6 sm:px-8 py-5 sm:py-6 shadow-xl text-center rounded-sm">
-              <p className="font-serif text-lg sm:text-xl text-brand-dark mb-2">Adna, ustanoviteljica z 5+ let izkušenj.</p>
-              <p className="text-brand-dark/70 italic text-xs sm:text-sm leading-relaxed whitespace-pre-wrap">"Moje poslanstvo je, da vsaka stranka zapusti salon bolj samozavestna, kot je prišla."</p>
-            </div>
           </div>
         </div>
       </section>

@@ -117,7 +117,7 @@ export function Pricelist() {
               <Link to="/kontakt" className="inline-block px-8 py-3 bg-brand-dark text-brand-light uppercase tracking-widest text-sm hover:bg-brand-nude transition-colors">Naroči se</Link>
             </div>
             <p className="text-sm text-brand-taupe italic mt-8 flex items-center">
-              <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termine prosim pridi brez maskare.
+              <AlertCircle className="w-4 h-4 mr-2" /> Opomba: Na termin prosim pridi brez maskare.
             </p>
           </div>
 

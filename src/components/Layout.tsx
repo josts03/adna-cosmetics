@@ -159,7 +159,7 @@ export function Layout({ children }: LayoutProps) {
               <Logo src="/logo_white.png" className="h-20 md:h-24 w-auto" />
             </Link>
             <p className="text-brand-nude opacity-80 max-w-sm mx-auto sm:mx-0">
-              V svojem kotičku lepote ti posvečam vso pozornost in poskrbim, da odideš bolj samozavestna.
+              Adna Cosmetics, kjer lepota sreča strokovnost in poudarja tvojo unikatnost.
             </p>
           </div>
           

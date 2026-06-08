@@ -135,7 +135,7 @@ export function Contact() {
                     required
                     autoComplete="name"
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
-                    placeholder="Tvoje ime in priimek"
+                    placeholder="Si že lepa, samo vpiši ime 🎀!"
                   />
                 </div>
                 <div>

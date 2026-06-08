@@ -24,7 +24,7 @@ export function About() {
             <h2 className="text-4xl font-serif mb-6 lg:mb-8 text-brand-dark">Adna Cosmetics</h2>
             <div className="prose prose-lg text-brand-dark/80 max-w-none">
               <p className="mb-0 lg:mb-6">
-                Dobrodošla v mojem kotičku lepote. Že od nekdaj me navdihuje estetika in dobro počutje, zato sem se odločila svoje znanje in strast pretopiti v profesionalen kozmetični salon.
+                Lepo vabljena v moj kotiček lepote! Spoznajva se v okolju, kjer tvoj termin ni le termin ampak čas, ki ga nameniš sama sebi. Zagotovim ti dobro energijo in prijeten pristop. Če ti je neprijetno ob novem spoznavanju, se lahko zmeniva in te počaka tvoj najljubši film ali pa serija. Trudim se, da je vsem strankam pri meni prijetno in udobno, saj je to tisto kar šteje. Se vidiva! :)
               </p>
             </div>
           </div>

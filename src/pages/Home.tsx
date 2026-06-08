@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Heart, CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -147,32 +147,32 @@ export function Home() {
               {
                 title: 'Manikura',
                 desc: 'Brezhibno urejene roke, ki naredijo vtis. Gel, trajni lak in podaljševanje za nohte, ki trajajo.',
-                icon: <Sparkles className="w-6 h-6" />
+                icon: '/manikura.png'
               },
               {
                 title: 'Pedikura',
                 desc: 'Mehke, negovane noge vse leto. Profesionalna pedikura za popolno urejena stopala.',
-                icon: <CheckCircle className="w-6 h-6" />
+                icon: '/pedikura.png'
               },
               {
                 title: 'Lash lift in obrvi',
                 desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudi se urejena.',
-                icon: <Sparkles className="w-6 h-6" />
+                icon: '/lash-lift.png'
               },
               {
                 title: 'Depilacija',
                 desc: 'Do 4 tedne gladke kože brez britja. Učinkovito voskanje za vse tipe kože.',
-                icon: <Heart className="w-6 h-6" />
+                icon: '/depilacija.png'
               },
               {
                 title: 'Masaža',
                 desc: '60-minutna masaža, ki odpravi napetost v hrbtu in ramenih.',
-                icon: <Heart className="w-6 h-6" />
+                icon: '/masaza.png'
               }
             ].map((service, index) => (
               <div key={index} className="bg-white p-8 group border border-brand-nude/50 hover:border-brand-taupe transition-colors">
-                <div className="mb-6 p-4 bg-brand-nude/40 text-brand-taupe inline-block rounded-full group-hover:bg-brand-taupe group-hover:text-brand-light transition-colors">
-                  {service.icon}
+                <div className="mb-6 w-16 h-16">
+                  <img src={service.icon} alt={service.title} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-xl font-serif mb-3">{service.title}</h3>
                 <p className="text-brand-dark/70 text-sm mb-6 leading-relaxed">

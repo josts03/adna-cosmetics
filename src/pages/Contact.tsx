@@ -1,13 +1,13 @@
 import { SEO } from '../components/SEO';
 import { Mail, MapPin, Instagram, Clock, CheckCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 
 export function Contact() {
   const [succeeded, setSucceeded] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
 

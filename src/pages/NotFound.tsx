@@ -8,6 +8,7 @@ export function NotFound() {
         title="404 – Stran ni najdena | Adna Cosmetics"
         description="Ta stran ne obstaja. Vrni se na začetno stran Adna Cosmetics."
         path="/404"
+        noindex
       />
 
       <div className="min-h-[80vh] flex items-center justify-center bg-brand-light px-4 py-24">

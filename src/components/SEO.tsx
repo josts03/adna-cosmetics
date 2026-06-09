@@ -4,9 +4,10 @@ interface SEOProps {
   title: string;
   description: string;
   path: string;
+  noindex?: boolean;
 }
 
-export function SEO({ title, description, path }: SEOProps) {
+export function SEO({ title, description, path, noindex = false }: SEOProps) {
   const siteUrl = "https://www.adnacosmetics.si";
   const url = `${siteUrl}${path}`;
 
@@ -15,7 +16,7 @@ export function SEO({ title, description, path }: SEOProps) {
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
       
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

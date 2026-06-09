@@ -13,16 +13,6 @@ export function NotFound() {
       <div className="min-h-[80vh] flex items-center justify-center bg-brand-light px-4 py-24">
         <div className="max-w-xl w-full text-center">
 
-          {/* Decorative number */}
-          <div className="relative inline-block mb-8 select-none">
-            <span className="text-[9rem] sm:text-[12rem] font-serif leading-none text-brand-nude block">
-              404
-            </span>
-            <span className="absolute inset-0 text-[9rem] sm:text-[12rem] font-serif leading-none text-brand-taupe/20 block translate-x-1 translate-y-1 -z-10">
-              404
-            </span>
-          </div>
-
           {/* Divider */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-px w-16 bg-brand-taupe/40"></div>

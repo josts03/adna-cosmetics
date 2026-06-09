@@ -19,10 +19,10 @@ export function PrivacyPolicy() {
 
         <div className="prose prose-brand max-w-none text-brand-dark/80 whitespace-pre-line leading-relaxed">
           <p className="mb-6">
-            Vaša zasebnost mi je zelo pomembna. V kozmetičnem salonu <strong>Adna Cosmetics</strong> (v nadaljevanju: "salon") se zavezujem, da bom vaše osebne podatke varovala v skladu z veljavno zakonodajo o varstvu osebnih podatkov (Splošna uredba o varstvu podatkov – GDPR in Zakon o varstvu osebnih podatkov – ZVOP-2).
+            Vaša zasebnost mi je zelo pomembna. V kozmetičnem salonu Adna Cosmetics se zavezujem, da bom vaše osebne podatke varovala v skladu z veljavno zakonodajo o varstvu osebnih podatkov (Splošna uredba o varstvu podatkov – GDPR in Zakon o varstvu osebnih podatkov – ZVOP-2).
           </p>
 
-          <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">1. Katere osebne podatke zbiramo?</h2>
+          <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">1. Katere osebne podatke zbiram?</h2>
           <p className="mb-6">
             Zbiram samo tiste osebne podatke, ki mi jih neposredno in prostovoljno posredujete prek kontaktnega obrazca ali ob naročanju:
           </p>
@@ -43,12 +43,12 @@ export function PrivacyPolicy() {
             <li>Odgovarjanje na vaša povpraševanja in vprašanja.</li>
           </ul>
           <p className="mb-6">
-            Vaših podatkov v nobenem primeru ne uporabljam za pošiljanje neželene oglasne pošte in jih ne obdelujte za namene neposrednega trženja brez vaše izrecne privolitve.
+            Vaših podatkov v nobenem primeru ne uporabljam za pošiljanje neželene oglasne pošte in jih ne obdelujem za namene neposrednega trženja brez vaše izrecne privolitve.
           </p>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">3. Deljenje podatkov s tretjimi osebami</h2>
           <p className="mb-6">
-            Vaše osebne podatke skrbno varujemo in jih <strong>ne delim</strong>, ne prodajam ter ne oddajam v najem nobenim tretjim osebam.
+            Vaše osebne podatke skrbno varujem in jih <strong>ne delim</strong>, ne prodajam ter ne oddajam v najem nobenim tretjim osebam.
           </p>
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">4. Hramba podatkov</h2>
@@ -63,7 +63,7 @@ export function PrivacyPolicy() {
           <ul className="list-disc pl-6 mb-6">
             <li>Pravica do dostopa do informacij o tem, katere podatke zbiram.</li>
             <li>Pravica do popravka netočnih podatkov.</li>
-            <li>Pravica do izbrisa ("pravica do pozabe").</li>
+            <li>Pravica do izbrisa (»pravica do pozabe«).</li>
             <li>Pravica do omejitve obdelave in ugovora zoper obdelavo.</li>
           </ul>
           <p>

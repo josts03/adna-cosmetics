@@ -171,7 +171,7 @@ export function Pricelist() {
                 <strong>24 – 48 ur</strong> pred rezervacijo – <span className="text-red-800 font-semibold">50%</span> vrednosti rezervirane storitve.
               </p>
               <div className="w-16 h-px bg-brand-taupe mx-auto my-6"></div>
-              <p className="italic text-sm">Strošek se zaračuna ob naslednjem obisku.</p>
+              <p className="italic text-sm">Strošek zaračunam ob naslednjem obisku.</p>
             </div>
           </div>
         </div>

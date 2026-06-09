@@ -101,9 +101,9 @@ export function Pricelist() {
             </div>
           </div>
 
-          {/* Lash lift in obrvi */}
+          {/* Lash lift in laminacija obrvi */}
           <div>
-            <h2 className="text-3xl font-serif mb-8 text-brand-dark border-b border-brand-nude pb-4">3. Lash lift in obrvi</h2>
+            <h2 className="text-3xl font-serif mb-8 text-brand-dark border-b border-brand-nude pb-4">3. Lash lift in laminacija obrvi</h2>
             <div className="space-y-4 mb-4">
               {prices.lashLiftObrvi.map((item, idx) => (
                 <div key={idx} className="flex justify-between items-center group">

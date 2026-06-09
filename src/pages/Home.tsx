@@ -156,7 +156,7 @@ export function Home() {
                 icon: '/pedikura.png'
               },
               {
-                title: 'Lash lift in obrvi',
+                title: 'Lash lift in laminacija obrvi',
                 desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudi se urejena.',
                 icon: '/lash-lift.png'
               },

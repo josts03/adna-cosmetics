@@ -11,7 +11,8 @@ const initialReviews = [
   { text: 'Super si, ful dobre nohtke delas in res se vidi da se izobrazujes redno! 💖💅🏼', name: 'Ula L.', city: 'Ljubljana', initial: 'U', stars: 5 },
   { text: 'Top of the top, ocena 5', name: 'Ema V.', city: 'Brezovica', initial: 'E', stars: 5 },
   { text: 'Vedno vesela, nasmejana in družabna, izpolnjuješ želje brez vprašanj. Čista 5 ❤️', name: 'Lejla R.', city: 'Idrija', initial: 'L', stars: 5 },
-  { text: 'Tvoji nohti so mi zmeraj drzali, noben ni nikoli odstopil, tudi ce sem jih imela dlje casa gor se noben ni zlomil, toptoptop', name: 'Zoja B.', city: 'Logatec', initial: 'Z', stars: 5 }
+  { text: 'Tvoji nohti so mi zmeraj drzali, noben ni nikoli odstopil, tudi ce sem jih imela dlje casa gor se noben ni zlomil, toptoptop', name: 'Zoja B.', city: 'Logatec', initial: 'Z', stars: 5 },
+  { text: 'Vzdusje na terminu je zelo prijetno, za smeh je vedno poskrbljeno. Sami nohti so narejeni hitro, za ugodno ceno in zelo lepo, vedno po mojih zeljah. Sam salon pa je zelo lepo urejen s prijetno temperaturo in ozracjem.', name: 'Eva D.', city: 'Ljubljana', initial: 'E', stars: 5 }
 ];
 
 export function Home() {
@@ -171,7 +172,7 @@ export function Home() {
               }
             ].map((service, index) => (
               <div key={index} className="bg-white p-8 group border border-brand-nude/50 hover:border-brand-taupe transition-colors">
-                <div className="mb-6 w-16 h-16">
+                <div className={`mb-6 ${service.title === 'Pedikura' ? 'w-[54px] h-[54px]' : 'w-16 h-16'}`}>
                   <img src={service.icon} alt={service.title} className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-xl font-serif mb-3">{service.title}</h3>

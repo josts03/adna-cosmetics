@@ -11,10 +11,11 @@ export default function Preloader() {
   useEffect(() => {
     if (!show) return;
     document.documentElement.style.overflow = "hidden";
+    const isPhone = window.matchMedia("(max-width: 767px)").matches;
     const t = setTimeout(() => {
       setShow(false);
       document.documentElement.style.overflow = "";
-    }, 2000);
+    }, isPhone ? 3000 : 2000);
     return () => {
       clearTimeout(t);
       document.documentElement.style.overflow = "";

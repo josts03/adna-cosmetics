@@ -14,11 +14,13 @@ import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { NotFound } from './pages/NotFound';
 import { CookieBanner } from './components/CookieBanner';
+import Preloader from './components/Preloader';
 
 export default function App() {
   return (
     <HelmetProvider>
       <Router>
+        <Preloader />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

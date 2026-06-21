@@ -14,9 +14,9 @@ export default function Preloader() {
 
     const isPhone = window.matchMedia("(max-width: 767px)").matches;
     const ANIM_DONE = 1200;                   // napis + črta se (hitro) izpišeta (~1,2 s)
-    const PAUSE = isPhone ? 500 : 1500;       // rjavo ozadje po izpisu napisa (telefon: −1 s)
+    const PAUSE = isPhone ? 0 : 1000;         // rjavo ozadje po izpisu napisa (telefon: krajše)
     const MIN_HOLD = ANIM_DONE + PAUSE;       // zajamčen prikaz: napis se vedno izpiše + premor
-    const TARGET = MIN_HOLD + 300;            // ciljni čas od navigacije (telefon ~2 s, desktop ~3 s)
+    const TARGET = MIN_HOLD + 300;            // ciljni čas od navigacije (telefon ~1,5 s, desktop ~2,5 s)
     const FONT_WAIT_CAP = 600;               // največ toliko čakamo na pisavo
 
     let timer: ReturnType<typeof setTimeout>;

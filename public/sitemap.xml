@@ -26,6 +26,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.adnacosmetics.si/pogoji-poslovanja</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.adnacosmetics.si/politika-zasebnosti</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

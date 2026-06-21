@@ -196,7 +196,10 @@ export function Layout({ children }: LayoutProps) {
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-brand-nude/20 text-center text-sm text-brand-nude/60 flex flex-col sm:flex-row justify-between items-center gap-4">
           <span>&copy; {new Date().getFullYear()} Adna Cosmetics. Vse pravice pridržane.</span>
-          <Link to="/politika-zasebnosti" className="hover:text-brand-nude transition-colors">Politika zasebnosti</Link>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
+            <Link to="/pogoji-poslovanja" className="hover:text-brand-nude transition-colors">Pogoji poslovanja</Link>
+            <Link to="/politika-zasebnosti" className="hover:text-brand-nude transition-colors">Politika zasebnosti</Link>
+          </div>
         </div>
       </footer>
     </div>

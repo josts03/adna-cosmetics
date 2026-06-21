@@ -12,6 +12,7 @@ import { Services } from './pages/Services';
 import { Pricelist } from './pages/Pricelist';
 import { Contact } from './pages/Contact';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfBusiness } from './pages/TermsOfBusiness';
 import { NotFound } from './pages/NotFound';
 import { CookieBanner } from './components/CookieBanner';
 import Preloader from './components/Preloader';
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/cenik" element={<Pricelist />} />
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/politika-zasebnosti" element={<PrivacyPolicy />} />
+            <Route path="/pogoji-poslovanja" element={<TermsOfBusiness />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

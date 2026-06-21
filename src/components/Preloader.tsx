@@ -11,13 +11,34 @@ export default function Preloader() {
   useEffect(() => {
     if (!show) return;
     document.documentElement.style.overflow = "hidden";
+
     const isPhone = window.matchMedia("(max-width: 767px)").matches;
-    const t = setTimeout(() => {
-      setShow(false);
-      document.documentElement.style.overflow = "";
-    }, isPhone ? 3000 : 2000);
+    const TARGET = isPhone ? 3000 : 2000;   // ms od navigacije do razkritja
+    const MIN_HOLD = isPhone ? 2200 : 1800; // da animacija vedno odigra do konca
+
+    let timer: ReturnType<typeof setTimeout>;
+    let cancelled = false;
+
+    const startCountdown = () => {
+      if (cancelled) return;
+      const remaining = Math.max(MIN_HOLD, TARGET - performance.now());
+      timer = setTimeout(() => {
+        setShow(false);
+        document.documentElement.style.overflow = "";
+      }, remaining);
+    };
+
+    // Počakaj na pisavo, da se napis ne "prestavi" sredi animacije,
+    // nato zaženi odštevanje vezano na začetek nalaganja strani.
+    if (typeof document !== "undefined" && document.fonts?.ready) {
+      document.fonts.ready.then(startCountdown);
+    } else {
+      startCountdown();
+    }
+
     return () => {
-      clearTimeout(t);
+      cancelled = true;
+      clearTimeout(timer);
       document.documentElement.style.overflow = "";
     };
   }, [show]);

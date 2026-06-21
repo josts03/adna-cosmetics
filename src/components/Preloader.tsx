@@ -12,11 +12,10 @@ export default function Preloader() {
     if (!show) return;
     document.documentElement.style.overflow = "hidden";
 
-    const isPhone = window.matchMedia("(max-width: 767px)").matches;
     const ANIM_DONE = 1200;                   // napis + črta se (hitro) izpišeta (~1,2 s)
-    const PAUSE = isPhone ? 0 : 1000;         // rjavo ozadje po izpisu napisa (telefon: krajše)
-    const MIN_HOLD = ANIM_DONE + PAUSE;       // zajamčen prikaz: napis se vedno izpiše + premor
-    const TARGET = MIN_HOLD + 300;            // ciljni čas od navigacije (telefon ~1,5 s, desktop ~2,5 s)
+    const PAUSE = 0;                           // brez premora – zavesa se dvigne takoj po izpisu napisa
+    const MIN_HOLD = ANIM_DONE + PAUSE;       // zajamčen prikaz: napis se vedno izpiše
+    const TARGET = MIN_HOLD + 300;            // ciljni čas od navigacije (~1,5 s, enako na vseh napravah)
     const FONT_WAIT_CAP = 600;               // največ toliko čakamo na pisavo
 
     let timer: ReturnType<typeof setTimeout>;

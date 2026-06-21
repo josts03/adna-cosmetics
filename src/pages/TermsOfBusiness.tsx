@@ -57,7 +57,7 @@ export function TermsOfBusiness() {
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">Reklamacije</h2>
           <p>
-            Reklamacije se upoštevajo v roku 48h po opravljenem tretmaju in v tem primeru strošek krijem jaz. Potrebno je, da mi stranka omogoči pregled stanja, bodisi v salonu, bodisi preko fotografije.
+            Reklamacijo je možno uveljavljati v roku 48h po opravljenem tretmaju, v tem primeru strošek reklamacije krijem jaz. Potrebno je, da mi stranka omogoči pregled stanja, bodisi v salonu, bodisi preko fotografije. Reklamacije dizajna in izbire barve ni mogoča, v primeru, da stranka z izbiro ni zadovoljna, je dolžna to skomunicirati tekom termina.
           </p>
         </div>
       </div>

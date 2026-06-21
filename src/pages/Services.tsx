@@ -18,7 +18,8 @@ const servicesList = [
     id: 'lash-lift-in-obrvi',
     title: 'Lash lift in laminacija obrvi',
     description: 'Vihanje trepalnic (lash lift) je tehnika s katero privzdignem naravne trepalnice, po želji lahko trepalnice tudi pobarvam. Oči bodo videti bolj odprte, trepalnice pa zavihane, bolj goste in daljše. Pri laminaciji obrvi pa prav tako lahko vključim barvanje; laminacija pomaga obvladovati dlačice in ustvariti lepo obliko brez gelov. Za najboljše rezultate se prvih 24h po tretmaju izogibaj savnam in močenju.',
-    image: '/storitev-vihanje-trepalnic.webp'
+    image: '/storitev-vihanje-trepalnic.webp',
+    imagePosition: 'object-[center_18%]'
   },
   {
     id: 'depilacija',

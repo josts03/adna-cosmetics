@@ -38,7 +38,7 @@ export function TermsOfBusiness() {
 
           <h2 className="text-2xl font-serif text-brand-dark mt-10 mb-4">Termin</h2>
           <p className="mb-6">
-            Na termine prosim hodite brez laka ali drugih materialov na nohtih pri prvem obisku. Odstranjevanje le-teh neposredno pred pričetkom termina otežuje sam proces. Pred prihodom na storitev manikure in pedikure ne nanašamo kreme ali olja, saj to lahko vpliva na obstojnost. Na storitvi vihanja trepalnic in laminacije obrvi pridi brez maskare in ličil na obrveh.
+            Na termine prosim hodite brez laka ali drugih materialov na nohtih, odstranjevanje le - teh neposredno pred terminom otežuje in upočasnjuje sam proces (se ne nanaša na termine namenjene korekciji mojega dela). Na dan in dan pred prihodom na manikuro ali pedikuro ne nanašamo kreme in olja, saj lahko močno vpliva na obstojnost. V primeru storitve vihanja trepalnic ali laminacije obrvi pridi brez ličil na tem področju.
           </p>
           <p className="mb-6">
             Na termin pridi 5 minut prej, tako se izogneš neprijetnem čakanju in jaz delu pod pritiskom. Včasih je teh 5 minut moj edini odmor, ki pa je res potreben. Na termin pridi pravočasno, v primeru zamude, mi jo sporoči. Toleranca za zamudo je 10 - 15 minut, v tem primeru delava skrajšan termin, kar v primeru, da je stranka naročena na manikuro pomeni, da bo iz salona odšla z enobarvnimi nohti ali pa le nanosom gela na naravne nohte. Tako se izognem zamiku celotnega urnika.

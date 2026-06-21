@@ -49,7 +49,7 @@ export function Home() {
       />
       
       {/* Hero Section */}
-      <section className="relative bg-brand-nude overflow-hidden h-[80vh] flex items-center md:bg-[url('/backgroundimage.jpg')] md:bg-cover md:bg-[center_25%] md:bg-no-repeat">
+      <section className="relative bg-brand-nude overflow-hidden h-[80vh] flex items-center md:bg-[url('/backgroundimage.webp')] md:bg-cover md:bg-[center_25%] md:bg-no-repeat">
         {/* Placeholder background image pattern */}
         <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] mix-blend-multiply md:hidden"></div>
         <div className="absolute right-0 top-0 w-1/2 h-full bg-brand-rose opacity-20 blur-3xl transform translate-x-1/4 -skew-x-12 md:hidden"></div>

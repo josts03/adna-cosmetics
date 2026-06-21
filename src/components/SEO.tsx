@@ -24,12 +24,12 @@ export function SEO({ title, description, path, noindex = false }: SEOProps) {
       <meta property="og:url" content={url} />
       <meta property="og:locale" content="sl_SI" />
       <meta property="og:site_name" content="Adna Cosmetics" />
-      <meta property="og:image" content={`${siteUrl}/backgroundimage.jpg`} />
+      <meta property="og:image" content={`${siteUrl}/backgroundimage.webp`} />
       
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={`${siteUrl}/backgroundimage.jpg`} />
+      <meta name="twitter:image" content={`${siteUrl}/backgroundimage.webp`} />
     </Helmet>
   );
 }

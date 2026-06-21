@@ -15,12 +15,19 @@ export default function Preloader() {
     const isPhone = window.matchMedia("(max-width: 767px)").matches;
     const TARGET = isPhone ? 3000 : 2000;   // ms od navigacije do razkritja
     const MIN_HOLD = isPhone ? 2200 : 1800; // da animacija vedno odigra do konca
+    const FONT_WAIT_CAP = 600;              // največ toliko čakamo na pisavo
 
     let timer: ReturnType<typeof setTimeout>;
+    let capTimer: ReturnType<typeof setTimeout>;
+    let started = false;
     let cancelled = false;
 
     const startCountdown = () => {
-      if (cancelled) return;
+      if (cancelled || started) return;
+      started = true;
+      clearTimeout(capTimer);
+      // Čas razkritja vežemo na performance.now() (≈ začetek nalaganja strani),
+      // da je skupni čas konsistenten ne glede na hitrost nalaganja bundla.
       const remaining = Math.max(MIN_HOLD, TARGET - performance.now());
       timer = setTimeout(() => {
         setShow(false);
@@ -28,17 +35,17 @@ export default function Preloader() {
       }, remaining);
     };
 
-    // Počakaj na pisavo, da se napis ne "prestavi" sredi animacije,
-    // nato zaženi odštevanje vezano na začetek nalaganja strani.
+    // Počakamo na pisavo (da se napis ne "prestavi"), a največ FONT_WAIT_CAP ms,
+    // da omrežno nalaganje pisave nikoli ne podaljša zavese.
     if (typeof document !== "undefined" && document.fonts?.ready) {
       document.fonts.ready.then(startCountdown);
-    } else {
-      startCountdown();
     }
+    capTimer = setTimeout(startCountdown, FONT_WAIT_CAP);
 
     return () => {
       cancelled = true;
       clearTimeout(timer);
+      clearTimeout(capTimer);
       document.documentElement.style.overflow = "";
     };
   }, [show]);

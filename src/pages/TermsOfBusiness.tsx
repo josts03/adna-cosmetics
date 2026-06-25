@@ -59,6 +59,9 @@ export function TermsOfBusiness() {
           <p>
             Reklamacijo je možno uveljavljati v roku 48h po opravljenem tretmaju, v tem primeru strošek reklamacije krijem jaz. Potrebno je, da mi stranka omogoči pregled stanja, bodisi v salonu, bodisi preko fotografije. Reklamacije dizajna in izbire barve ni mogoča, v primeru, da stranka z izbiro ni zadovoljna, je dolžna to skomunicirati tekom termina.
           </p>
+          <p className="mt-6">
+            Salon Adna Cosmetics si pridržuje pravico do spremembe splošnih pogojev poslovanja. Vse spremembe bodo objavljene na spletni strani in bodo začele veljati z dnevom objave.
+          </p>
         </div>
       </div>
     </div>

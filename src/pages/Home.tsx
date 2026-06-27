@@ -44,7 +44,7 @@ export function Home() {
     <>
       <SEO
         title="Adna Cosmetics – Kozmetični salon Vrhnika"
-        description="Kozmetični salon Adna Cosmetics na Vrhniki. Manikura, pedikura, lash lift in laminacija obrvi, depilacija in masaža. Rezerviraj svoj termin."
+        description="Manikura, pedikura, lash lift in laminacija obrvi, depilacija ter masaža na Vrhniki. Rezerviraj termin v salonu Adna Cosmetics!"
         path="/"
       />
       

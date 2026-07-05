@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -9,12 +8,12 @@
   --color-brand-nude-2: #EFDCCC;
   --color-brand-nude-3: #E9D3C0;
   --color-brand-nude-4: #DBC2AD;
-  --color-brand-nude-5: #A18167;
+  --color-brand-nude-5: #8A6A52;
 
   --color-brand-light: #FCFAF8;
   --color-brand-nude: #F2E5D9;
   --color-brand-rose: #EFDCCC;
-  --color-brand-taupe: #A18167;
+  --color-brand-taupe: #8A6A52;
   --color-brand-medium: #DBC2AD;
   --color-brand-dark: #3B2E25;
   --color-brand-black: #000000;
@@ -37,6 +36,13 @@ body {
   @apply text-brand-dark bg-brand-light font-sans antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  @apply font-serif;
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* FAQ accordion: chevron se obrne, ko je vprašanje odprto */
+details[open] .faq-chevron {
+  transform: rotate(180deg);
 }

@@ -23,8 +23,11 @@ export function Layout({ children }: LayoutProps) {
 
   useEffect(() => {
     setIsMenuOpen(false);
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    // ob navigaciji s sidrom (#storitev) scroll prevzame ciljna stran
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash]);
 
   const navLinks = [
     { name: 'Domov', path: '/' },
@@ -43,11 +46,11 @@ export function Layout({ children }: LayoutProps) {
             <span>Vrhnika</span>
           </div>
           <div className="flex items-center space-x-4">
-            <a href="mailto:adnaacosmetics@gmail.com" className="flex items-center space-x-1 hover:text-brand-nude transition-colors">
+            <a href="mailto:adnaacosmetics@gmail.com" className="flex items-center space-x-1 hover:text-brand-nude transition-colors p-2 -m-2" aria-label="Pošlji email na adnaacosmetics@gmail.com">
               <Mail className="w-4 h-4" />
               <span className="hidden sm:inline">adnaacosmetics@gmail.com</span>
             </a>
-            <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-nude transition-colors">
+            <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="inline-flex hover:text-brand-nude transition-colors p-2 -m-2" aria-label="Instagram — Adna Cosmetics">
               <Instagram className="w-4 h-4" />
             </a>
           </div>
@@ -156,7 +159,7 @@ export function Layout({ children }: LayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 text-center sm:text-left [&>div]:min-w-0">
           <div className="flex flex-col space-y-4 items-center sm:items-start">
             <Link to="/" className="text-brand-light hover:text-brand-nude transition-colors mb-2">
-              <Logo src="/logo_white.png" className="h-20 md:h-24 w-auto" />
+              <Logo src="/logo_white.webp" className="h-20 md:h-24 w-auto" loading="lazy" />
             </Link>
             <p className="text-brand-nude opacity-80 max-w-sm mx-auto sm:mx-0">
               Adna Cosmetics, kjer lepota sreča strokovnost in poudarja tvojo unikatnost.
@@ -164,7 +167,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
           
           <div className="flex flex-col space-y-4">
-            <h4 className="font-serif text-xl mb-2">Kontakt</h4>
+            <p className="font-serif text-xl mb-2">Kontakt</p>
             <p className="flex items-center justify-center sm:justify-start gap-2">
               <MapPin className="w-4 h-4 text-brand-nude" /> Vrhnika
             </p>
@@ -174,7 +177,7 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="flex flex-col space-y-4">
-            <h4 className="font-serif text-xl mb-2">Delovni čas</h4>
+            <p className="font-serif text-xl mb-2">Delovni čas</p>
             <div className="text-sm space-y-2">
               <p className="flex justify-center sm:justify-start gap-2">
                 <span>Pon - Pet:</span> <span className="text-brand-nude">Po dogovoru</span>
@@ -186,9 +189,9 @@ export function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="flex flex-col space-y-4">
-            <h4 className="font-serif text-xl mb-2">Sledi mi</h4>
+            <p className="font-serif text-xl mb-2">Sledi mi</p>
             <div className="flex space-x-4 justify-center sm:justify-start">
-              <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="p-3 border border-brand-nude/30 rounded-full hover:bg-brand-nude/10 hover:border-brand-nude transition-all">
+              <a href="https://www.instagram.com/adnaa_cosmetics/" target="_blank" rel="noopener noreferrer" className="p-3 border border-brand-nude/30 rounded-full hover:bg-brand-nude/10 hover:border-brand-nude transition-all" aria-label="Instagram — Adna Cosmetics">
                 <Instagram className="w-5 h-5 text-brand-nude" />
               </a>
             </div>
@@ -197,8 +200,8 @@ export function Layout({ children }: LayoutProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-brand-nude/20 text-center text-sm text-brand-nude/60 flex flex-col sm:flex-row justify-between items-center gap-4">
           <span>&copy; {new Date().getFullYear()} Adna Cosmetics. Vse pravice pridržane.</span>
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
-            <Link to="/pogoji-poslovanja" className="hover:text-brand-nude transition-colors">Pogoji poslovanja</Link>
-            <Link to="/politika-zasebnosti" className="hover:text-brand-nude transition-colors">Politika zasebnosti</Link>
+            <Link to="/pogoji-poslovanja" className="hover:text-brand-nude transition-colors py-2">Pogoji poslovanja</Link>
+            <Link to="/politika-zasebnosti" className="hover:text-brand-nude transition-colors py-2">Politika zasebnosti</Link>
           </div>
         </div>
       </footer>

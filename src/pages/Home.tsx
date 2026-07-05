@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, ChevronLeft, ChevronRight, ChevronDown, Star } from 'lucide-react';
 import { SEO } from '../components/SEO';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -14,6 +14,55 @@ const initialReviews = [
   { text: 'Tvoji nohti so mi zmeraj drzali, noben ni nikoli odstopil, tudi ce sem jih imela dlje casa gor se noben ni zlomil, toptoptop', name: 'Zoja B.', city: 'Logatec', initial: 'Z', stars: 5 },
   { text: 'Vzdusje na terminu je zelo prijetno, za smeh je vedno poskrbljeno. Sami nohti so narejeni hitro, za ugodno ceno in zelo lepo, vedno po mojih zeljah. Sam salon pa je zelo lepo urejen s prijetno temperaturo in ozracjem.', name: 'Eva D.', city: 'Ljubljana', initial: 'E', stars: 5 }
 ];
+
+const faqs = [
+  {
+    q: 'Katere storitve ponuja Adna Cosmetics?',
+    a: 'Adna Cosmetics je kozmetični salon na Vrhniki, ki ponuja manikuro, pedikuro, lash lift in laminacijo obrvi, depilacijo z voskom ter masažo.',
+  },
+  {
+    q: 'Koliko stane manikura na Vrhniki?',
+    a: 'Osnovna manikura v salonu Adna Cosmetics stane 25 €, podaljševanje nohtov od 35 do 45 €, permanentno (trajno) lakiranje pa 30 €.',
+  },
+  {
+    q: 'Kje lahko na Vrhniki naredim lash lift ali laminacijo obrvi?',
+    a: 'Lash lift in laminacijo obrvi izvajam v salonu Adna Cosmetics na Vrhniki. Lash lift stane 35 €, laminacija obrvi 35 €, kombinacija obojega (duo) pa 60 €.',
+  },
+  {
+    q: 'Kako se naročim v salon Adna Cosmetics?',
+    a: 'Naročiš se prek obrazca na strani Kontakt, po e-pošti (adnaacosmetics@gmail.com) ali prek Instagrama @adnaa_cosmetics. Termin ti nato potrdim osebno.',
+  },
+  {
+    q: 'Kakšen je delovni čas salona?',
+    a: 'Salon deluje po dogovoru od ponedeljka do petka. Ob sobotah, nedeljah in praznikih je zaprto.',
+  },
+  {
+    q: 'Kje se salon nahaja?',
+    a: 'Salon je na Vrhniki. Točen naslov ti posredujem ob potrditvi rezervacije termina.',
+  },
+  {
+    q: 'Ali v salon prihajajo stranke iz okolice Vrhnike?',
+    a: 'Da, poleg strank z Vrhnike me redno obiskujejo tudi iz Ljubljane, Logatca, Borovnice, Brezovice in drugih okoliških krajev.',
+  },
+  {
+    q: 'Ali je za obisk potrebna rezervacija?',
+    a: 'Da, delam izključno po naročilu. Ob odpovedi manj kot 24 ur pred terminom se zaračuna 100 % vrednosti storitve, pri odpovedi 24–48 ur prej pa 50 %.',
+  },
+  {
+    q: 'Koliko traja in stane masaža?',
+    a: 'Klasična masaža telesa traja 60 minut in stane 40 €. Krajša masaža zgornjega hrbta z vratom traja 30 minut in stane 20 €.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 
 export function Home() {
   const [reviews, setReviews] = useState(initialReviews);
@@ -43,15 +92,16 @@ export function Home() {
   return (
     <>
       <SEO
-        title="Adna Cosmetics – Kozmetični salon Vrhnika"
+        title="Adna Cosmetics – Kozmetični salon Vrhnika | Manikura"
         description="Manikura, pedikura, lash lift in laminacija obrvi, depilacija ter masaža na Vrhniki. Rezerviraj termin v salonu Adna Cosmetics!"
         path="/"
+        schema={faqSchema}
       />
       
       {/* Hero Section */}
       <section className="relative bg-brand-nude overflow-hidden h-[80vh] flex items-center md:bg-[url('/backgroundimage.webp')] md:bg-cover md:bg-[center_25%] md:bg-no-repeat">
         {/* Placeholder background image pattern */}
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] mix-blend-multiply md:hidden"></div>
+        <div className="absolute inset-0 opacity-20 bg-[url('/cream-paper.png')] mix-blend-multiply md:hidden"></div>
         <div className="absolute right-0 top-0 w-1/2 h-full bg-brand-rose opacity-20 blur-3xl transform translate-x-1/4 -skew-x-12 md:hidden"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
@@ -59,13 +109,13 @@ export function Home() {
             <span className="uppercase tracking-[0.2em] text-brand-dark/70 text-sm font-semibold mb-4 block">
               Dobrodošla
             </span>
-            <h1 className="text-5xl md:text-7xl font-serif text-brand-dark leading-tight mb-6">
+            <p className="text-5xl md:text-7xl font-serif text-brand-dark leading-tight mb-6">
               Bodi vse, kar si <br/>
               <span className="italic text-brand-taupe">v Adna Cosmetics</span>
-            </h1>
-            <p className="text-lg md:text-xl text-brand-dark/80 mb-10 max-w-lg leading-relaxed">
-              Manikura, pedikura, lash lift in laminacija obrvi, depilacija in masaža — vse na enem mestu. Rezerviraj svoj termin zdaj.
             </p>
+            <h1 className="font-sans font-normal text-lg md:text-xl text-brand-dark/80 mb-10 max-w-lg leading-relaxed">
+              Manikura, pedikura, lash lift in laminacija obrvi, depilacija in masaža. Vse na enem mestu na Vrhniki.
+            </h1>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/kontakt"
@@ -118,7 +168,11 @@ export function Home() {
             <div className="absolute inset-0 bg-brand-dark/5 rounded-t-full overflow-hidden group">
               <img
                 src="/salon-osebje.webp"
+                srcSet="/salon-osebje-800.webp 800w, /salon-osebje.webp 1067w"
+                sizes="(min-width: 1024px) 50vw, 100vw"
                 alt="Adna, ustanoviteljica salona Adna Cosmetics na Vrhniki"
+                width={1067}
+                height={1600}
                 loading="lazy"
                 decoding="async"
                 className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -148,38 +202,43 @@ export function Home() {
               {
                 title: 'Manikura',
                 desc: 'Brezhibno urejene roke, ki naredijo vtis. Gel, trajni lak in podaljševanje za nohte, ki trajajo.',
-                icon: '/manikura.png'
+                icon: '/manikura.webp',
+                link: '/storitve#manikura'
               },
               {
                 title: 'Pedikura',
                 desc: 'Mehke, negovane noge vse leto. Profesionalna pedikura za popolno urejena stopala.',
-                icon: '/pedikura.png'
+                icon: '/pedikura.webp',
+                link: '/storitve#pedikura'
               },
               {
                 title: 'Lash lift in laminacija obrvi',
                 desc: 'Oblikovanje, laminacija in lash lift, ki traja tedne. Zbudi se urejena.',
-                icon: '/lash-lift.png'
+                icon: '/lash-lift.webp',
+                link: '/storitve#lash-lift-in-obrvi'
               },
               {
                 title: 'Depilacija',
                 desc: 'Do 4 tedne gladke kože brez britja. Učinkovito voskanje za vse tipe kože.',
-                icon: '/depilacija.png'
+                icon: '/depilacija.webp',
+                link: '/storitve#depilacija'
               },
               {
                 title: 'Masaža',
                 desc: '60-minutna masaža, ki odpravi napetost v hrbtu in ramenih.',
-                icon: '/masaza.png'
+                icon: '/masaza.webp',
+                link: '/storitve#masaza'
               }
             ].map((service, index) => (
               <div key={index} className="bg-white p-8 group border border-brand-nude/50 hover:border-brand-taupe transition-colors">
                 <div className={`mb-6 ${service.title === 'Pedikura' ? 'w-[54px] h-[54px]' : 'w-16 h-16'}`}>
-                  <img src={service.icon} alt={service.title} className="w-full h-full object-contain" />
+                  <img src={service.icon} alt="" width={160} height={160} loading="lazy" decoding="async" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="text-xl font-serif mb-3">{service.title}</h3>
                 <p className="text-brand-dark/70 text-sm mb-6 leading-relaxed">
                   {service.desc}
                 </p>
-                <Link to="/storitve" className="inline-flex items-center text-sm font-semibold text-brand-taupe hover:text-brand-dark transition-colors uppercase tracking-widest">
+                <Link to={service.link} className="inline-flex items-center text-sm font-semibold text-brand-taupe hover:text-brand-dark transition-colors uppercase tracking-widest">
                   Več <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -223,9 +282,9 @@ export function Home() {
                       }}
                       className="w-full shrink-0 p-6 sm:p-8 border border-brand-nude/50 flex flex-col items-start bg-brand-light/30 rounded-sm cursor-grab active:cursor-grabbing"
                     >
-                      <div className="flex space-x-1 mb-6">
+                      <div className="flex space-x-1 mb-6" role="img" aria-label={`Ocena ${review.stars} od 5`}>
                         {Array.from({ length: 5 }).map((_, j) => (
-                           <span key={j} className={`text-lg ${j < review.stars ? 'text-[#D4AF37]' : 'text-gray-300'}`}>★</span>
+                           <Star key={j} className={`w-[18px] h-[18px] ${j < review.stars ? 'text-[#D4AF37] fill-[#D4AF37]' : 'text-gray-300 fill-gray-300'}`} />
                         ))}
                       </div>
                       <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed min-h-[160px] text-sm sm:text-base">
@@ -236,8 +295,8 @@ export function Home() {
                           {review.initial}
                         </div>
                         <div>
-                          <h4 className="font-semibold text-brand-dark">{review.name}</h4>
-                          <p className="text-xs text-brand-dark/60">{review.city}</p>
+                          <p className="font-semibold text-brand-dark">{review.name}</p>
+                          <p className="text-xs text-brand-dark/70">{review.city}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -261,14 +320,16 @@ export function Home() {
               </button>
             </div>
 
-            <div className="flex justify-center mt-6 space-x-2">
+            <div className="flex justify-center mt-6">
               {reviews.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveMobileReview(idx)}
-                  className={`w-2 h-2 rounded-full transition-colors ${idx === activeMobileReview ? 'bg-brand-taupe' : 'bg-brand-nude'}`}
+                  className="w-6 h-6 flex items-center justify-center"
                   aria-label={`Mnenje ${idx + 1}`}
-                />
+                >
+                  <span className={`w-2 h-2 rounded-full transition-colors ${idx === activeMobileReview ? 'bg-brand-taupe' : 'bg-brand-nude'}`} />
+                </button>
               ))}
             </div>
           </div>
@@ -286,9 +347,9 @@ export function Home() {
                   key={`${review.name}-${i}`}
                   className="w-[300px] md:w-[400px] shrink-0 p-8 border border-brand-nude/50 flex flex-col items-start bg-brand-light/30 rounded-sm"
                 >
-                  <div className="flex space-x-1 mb-6">
+                  <div className="flex space-x-1 mb-6" role="img" aria-label={`Ocena ${review.stars} od 5`}>
                     {Array.from({ length: 5 }).map((_, j) => (
-                       <span key={j} className={`text-lg ${j < review.stars ? 'text-[#D4AF37]' : 'text-gray-300'}`}>★</span>
+                       <Star key={j} className={`w-[18px] h-[18px] ${j < review.stars ? 'text-[#D4AF37] fill-[#D4AF37]' : 'text-gray-300 fill-gray-300'}`} />
                     ))}
                   </div>
                   <p className="text-brand-dark/80 italic mb-8 flex-grow leading-relaxed">
@@ -299,13 +360,36 @@ export function Home() {
                       {review.initial}
                     </div>
                     <div>
-                      <h4 className="font-semibold text-brand-dark">{review.name}</h4>
-                      <p className="text-xs text-brand-dark/60">{review.city}</p>
+                      <p className="font-semibold text-brand-dark">{review.name}</p>
+                      <p className="text-xs text-brand-dark/70">{review.city}</p>
                     </div>
                   </div>
                 </div>
               ))}
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 bg-brand-light">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-4xl font-serif mb-4">Pogosta vprašanja</h2>
+            <p className="text-brand-dark/70">
+              Kar stranke najpogosteje vprašajo pred prvim obiskom.
+            </p>
+          </div>
+          <div className="divide-y divide-brand-nude">
+            {faqs.map((faq, i) => (
+              <details key={i} className="group">
+                <summary className="flex justify-between items-center gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <h3 className="text-xl font-serif text-brand-dark">{faq.q}</h3>
+                  <ChevronDown className="faq-chevron w-5 h-5 text-brand-taupe shrink-0 transition-transform duration-300" />
+                </summary>
+                <p className="text-brand-dark/80 leading-relaxed pb-5">{faq.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

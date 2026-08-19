@@ -1,22 +1,55 @@
 import { SEO } from '../components/SEO';
 import { Mail, MapPin, Instagram, Clock, CheckCircle } from 'lucide-react';
-import { useState, FormEvent } from 'react';
+import { useState, useRef, FormEvent } from 'react';
+import { normalizeField } from '../utils/formText';
+
+// Katera polja popravimo iz ALL-CAPS (ključ = name atribut polja).
+const CASE_RULES = {
+  Ime: 'title',
+  Sporocilo: 'sentence',
+} as const;
+
+// Človek obrazca ne izpolni v manj kot toliko sekundah, bot pa ga.
+const MIN_FILL_SECONDS = 3;
 
 export function Contact() {
   const [succeeded, setSucceeded] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const openedAt = useRef(Date.now());
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
 
     const form = e.currentTarget;
+
+    // Popravimo vrednosti kar v poljih, da uporabnik vidi, kaj bo poslano.
+    for (const [fieldName, style] of Object.entries(CASE_RULES)) {
+      const field = form.elements.namedItem(fieldName);
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        field.value = normalizeField(field.value, style);
+      }
+    }
+
     const data = new FormData(form);
 
-    // Spam protection: če je skrito polje (honeypot) izpolnjeno, gre za bota.
+    // Zaščita 1: skrito polje (honeypot) izpolnijo samo boti – tiho jih odslovimo.
     if (data.get('_gotcha')) {
       setSucceeded(true);
+      return;
+    }
+
+    // Zaščita 2: obrazec, oddan v hipu, je skoraj zagotovo avtomatiziran.
+    if ((Date.now() - openedAt.current) / 1000 < MIN_FILL_SECONDS) {
+      setError('Obrazec je bil oddan prehitro. Počakaj trenutek in poskusi znova.');
+      return;
+    }
+
+    // Zaščita 3: povezave v sporočilu so tipičen znak neželene pošte.
+    const links = (data.get('Sporocilo')?.toString().match(/https?:\/\/|www\./gi) || []).length;
+    if (links > 1) {
+      setError('Sporočilo vsebuje preveč povezav. Prosim, piši mi brez njih ali na e-pošto.');
       return;
     }
 
@@ -147,7 +180,7 @@ export function Contact() {
                     required
                     inputMode="tel"
                     autoComplete="tel"
-                    pattern="[0-9+\s()/-]{6,20}"
+                    pattern="[0-9+\s\(\)\/\-]{6,20}"
                     title="Vnesi veljavno telefonsko številko (npr. 041 123 456)."
                     className="w-full px-4 py-3 border border-brand-nude bg-brand-light/50 focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors"
                     placeholder="041 123 456"

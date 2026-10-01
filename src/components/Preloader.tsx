@@ -1,15 +1,44 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "motion/react";
 
 const TITLE = "ADNA COSMETICS";
-const isFirstVisit = !sessionStorage.getItem("adna_visited");
-sessionStorage.setItem("adna_visited", "1");
+const STORAGE_KEY = "adna_visited";
 
+// Ali je to prvi obisk v tej seji. Rezultat si zapomnimo, da StrictMode
+// (dvojni zagon effectov v razvoju) ne označi obiska že ob prvem klicu.
+let firstVisit: boolean | null = null;
+function isFirstVisit(): boolean {
+  if (firstVisit !== null) return firstVisit;
+  try {
+    firstVisit = !sessionStorage.getItem(STORAGE_KEY);
+    sessionStorage.setItem(STORAGE_KEY, "1");
+  } catch {
+    firstVisit = false;
+  }
+  return firstVisit;
+}
+
+/**
+ * Zavesa ob prvem obisku – samo na domači strani.
+ *
+ * Obiskovalec, ki z Googla pristane na podstrani storitve, vsebino vidi takoj; zavesa
+ * je brand trenutek le za vstop prek domače strani. Na `/` je del prerenderanega HTML-ja
+ * (na strežniku in ob hidraciji je `show` true, da se DOM ujema); ali jo obiskovalec sploh
+ * vidi, pred prvim izrisom odloči inline skripta v index.html: samo ob prvem obisku v seji
+ * in samo na `/` doda razred `first-visit` na <html>, sicer jo CSS (`.preloader-curtain`) skrije.
+ * Na ostalih poteh se zavesa sploh ne izriše.
+ */
 export default function Preloader() {
-  const [show, setShow] = useState(isFirstVisit);
+  const isHome = useLocation().pathname === "/";
+  const [show, setShow] = useState(isHome);
 
   useEffect(() => {
-    if (!show) return;
+    if (!isHome || !isFirstVisit()) {
+      setShow(false);
+      return;
+    }
+
     document.documentElement.style.overflow = "hidden";
 
     const ANIM_DONE = 700;                    // napis + črta se (hitro) izpišeta (~0,7 s)
@@ -38,7 +67,7 @@ export default function Preloader() {
 
     // Počakamo na pisavo (da se napis ne "prestavi"), a največ FONT_WAIT_CAP ms,
     // da omrežno nalaganje pisave nikoli ne podaljša zavese.
-    if (typeof document !== "undefined" && document.fonts?.ready) {
+    if (document.fonts?.ready) {
       document.fonts.ready.then(startCountdown);
     }
     capTimer = setTimeout(startCountdown, FONT_WAIT_CAP);
@@ -49,7 +78,9 @@ export default function Preloader() {
       clearTimeout(capTimer);
       document.documentElement.style.overflow = "";
     };
-  }, [show]);
+    // Zavesa se odloči enkrat, ob prvem izrisu; kasnejša navigacija je ne prikaže znova.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <AnimatePresence>
@@ -57,13 +88,13 @@ export default function Preloader() {
         <>
           <motion.div
             key="curtain-nude"
-            className="fixed inset-0 z-[99] bg-brand-nude"
+            className="preloader-curtain fixed inset-0 z-[99] bg-brand-nude"
             exit={{ y: "-100%" }}
             transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.08 }}
           />
           <motion.div
             key="curtain-dark"
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brand-dark"
+            className="preloader-curtain fixed inset-0 z-[100] flex flex-col items-center justify-center bg-brand-dark"
             exit={{ y: "-100%" }}
             transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
           >
@@ -76,7 +107,7 @@ export default function Preloader() {
                   transition={{ delay: 0.04 + i * 0.02, duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                   className="inline-block font-serif text-[22px] tracking-[0.18em] text-brand-light sm:text-3xl sm:tracking-[0.25em] md:text-5xl"
                 >
-                  {ch === " " ? "\u00A0" : ch}
+                  {ch === " " ? " " : ch}
                 </motion.span>
               ))}
             </div>

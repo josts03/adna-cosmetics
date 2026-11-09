@@ -366,10 +366,10 @@ export function Contact() {
                     </div>
                     <div>
                       <label htmlFor="time" className="block text-sm font-medium text-brand-dark/80 mb-2">
-                        Želeni čas <span className="text-brand-dark/60">(neobvezno)</span>
+                        Želeni čas<Required />
                       </label>
-                      <select id="time" name="Zeleni cas" defaultValue="Vseeno" className={FIELD_CLASS}>
-                        <option value="Vseeno">Vseeno mi je</option>
+                      <select id="time" name="Zeleni cas" required defaultValue="" className={FIELD_CLASS}>
+                        <option value="" disabled>Izberi čas</option>
                         <option value="Dopoldne">Dopoldne</option>
                         <option value="Popoldne">Popoldne</option>
                       </select>

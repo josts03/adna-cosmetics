@@ -3,7 +3,7 @@ import { PageHeader } from '../components/PageHeader';
 import { services } from '../data/services';
 import { SITE_URL } from '../data/site';
 import { buildPageGraph } from '../lib/schema';
-import { Mail, MapPin, Instagram, Clock, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Instagram, Clock, CheckCircle, CalendarDays } from 'lucide-react';
 import { useState, useRef, useEffect, FormEvent } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { normalizeField } from '../utils/formText';
@@ -50,19 +50,31 @@ function isWeekend(iso: string): boolean {
   return day === 0 || day === 6;
 }
 
-/** "2026-11-12" -> "četrtek, 12. 11. 2026", da je v e-pošti takoj viden dan v tednu. */
+/** "2026-11-12" -> "Četrtek, 12. 11. 2026" – za prikaz v polju in v e-pošti lastnici. */
 function formatDateSl(iso: string): string {
   const date = parseIsoDate(iso);
-  return date
-    ? date.toLocaleDateString('sl-SI', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' })
-    : iso;
+  if (!date) return iso;
+  const text = date.toLocaleDateString('sl-SI', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric',
+  });
+  return text.charAt(0).toLocaleUpperCase('sl-SI') + text.slice(1);
 }
 
-/** Današnji datum (lokalni čas) v obliki YYYY-MM-DD za atribut min. */
-function todayIso(): string {
-  const d = new Date();
+/** Date -> "YYYY-MM-DD" v lokalnem času (toISOString bi pretvoril v UTC). */
+function toIso(d: Date): string {
   const pad = (n: number) => String(n).padStart(2, '0');
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+/** Predlog termina: isti dan čez en teden; če pade na vikend, naslednji ponedeljek. */
+function suggestedDateIso(): string {
+  const d = new Date();
+  d.setDate(d.getDate() + 7);
+  while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+  return toIso(d);
 }
 
 const FIELD_CLASS =
@@ -98,9 +110,10 @@ export function Contact() {
     }
   }, [searchParams]);
 
-  // Tudi "danes" šele po mountu – ob prerenderju bi bil to datum builda.
+  // Tudi "danes" in predlog šele po mountu – ob prerenderju bi bil to datum builda.
   useEffect(() => {
-    setMinDate(todayIso());
+    setMinDate(toIso(new Date()));
+    setDate((current) => current || suggestedDateIso());
   }, []);
 
   // Vikend brskalnik zavrne že ob oddaji, enako kot prazno obvezno polje.
@@ -290,7 +303,7 @@ export function Contact() {
                     name="Email"
                     autoComplete="email"
                     className={FIELD_CLASS}
-                    placeholder="ime@primer.com"
+                    placeholder="lepa.sem@gmail.com"
                   />
                 </div>
                 <div>
@@ -312,24 +325,44 @@ export function Contact() {
                   </select>
                 </div>
                 <div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-6">
                     <div>
                       <label htmlFor="date" className="block text-sm font-medium text-brand-dark/80 mb-2">
                         Želeni datum<Required />
                       </label>
-                      <input
-                        ref={dateRef}
-                        type="date"
-                        id="date"
-                        name={DATE_FIELD}
-                        required
-                        min={minDate}
-                        value={date}
-                        onChange={(e) => setDate(e.target.value)}
-                        aria-describedby="date-hint"
-                        aria-invalid={weekendPicked || undefined}
-                        className={`${FIELD_CLASS} min-h-[50px] appearance-none text-left [&::-webkit-date-and-time-value]:text-left`}
-                      />
+                      {/* Pravo polje je nevidno nad lepšim prikazom ("Ponedeljek, 16. 11. 2026");
+                          klik nanj odpre koledar brskalnika, vrednost pa gre v obrazec kot vedno. */}
+                      <div className="relative">
+                        <input
+                          ref={dateRef}
+                          type="date"
+                          id="date"
+                          name={DATE_FIELD}
+                          required
+                          min={minDate}
+                          value={date}
+                          onChange={(e) => setDate(e.target.value)}
+                          onClick={(e) => {
+                            try {
+                              e.currentTarget.showPicker();
+                            } catch {
+                              // Starejši brskalniki: koledar odprejo sami ob kliku.
+                            }
+                          }}
+                          aria-describedby="date-hint"
+                          aria-invalid={weekendPicked || undefined}
+                          className="peer absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        />
+                        <div
+                          aria-hidden="true"
+                          className={`${FIELD_CLASS} flex items-center justify-between gap-3 pointer-events-none peer-focus:border-brand-taupe peer-focus:ring-1 peer-focus:ring-brand-taupe`}
+                        >
+                          <span className={`min-w-0 truncate ${date ? 'text-brand-dark' : 'text-brand-dark/50'}`}>
+                            {date ? formatDateSl(date) : 'Izberi datum'}
+                          </span>
+                          <CalendarDays className="w-5 h-5 shrink-0 text-brand-taupe" />
+                        </div>
+                      </div>
                     </div>
                     <div>
                       <label htmlFor="time" className="block text-sm font-medium text-brand-dark/80 mb-2">

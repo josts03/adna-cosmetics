@@ -35,6 +35,36 @@ const CASE_RULES = {
 // Človek obrazca ne izpolni v manj kot toliko sekundah, bot pa ga.
 const MIN_FILL_SECONDS = 3;
 
+// Želeni termin je le predlog stranke – lastnica ga ob klicu potrdi ali spremeni.
+const DATE_FIELD = 'Zeleni datum';
+const WEEKEND_MESSAGE = 'Ob vikendih je salon zaprt. Izberi dan od ponedeljka do petka.';
+
+/** "2026-11-12" -> lokalni Date (new Date("2026-11-12") bi ga bral kot UTC). */
+function parseIsoDate(iso: string): Date | null {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  return m ? new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3])) : null;
+}
+
+function isWeekend(iso: string): boolean {
+  const day = parseIsoDate(iso)?.getDay();
+  return day === 0 || day === 6;
+}
+
+/** "2026-11-12" -> "četrtek, 12. 11. 2026", da je v e-pošti takoj viden dan v tednu. */
+function formatDateSl(iso: string): string {
+  const date = parseIsoDate(iso);
+  return date
+    ? date.toLocaleDateString('sl-SI', { weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric' })
+    : iso;
+}
+
+/** Današnji datum (lokalni čas) v obliki YYYY-MM-DD za atribut min. */
+function todayIso(): string {
+  const d = new Date();
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
 const FIELD_CLASS =
   'w-full px-4 py-3 border border-brand-medium bg-white focus:outline-none focus:border-brand-taupe focus:ring-1 focus:ring-brand-taupe transition-colors';
 
@@ -54,6 +84,10 @@ export function Contact() {
   const openedAt = useRef(Date.now());
   const [searchParams] = useSearchParams();
   const [service, setService] = useState('');
+  const [date, setDate] = useState('');
+  const [minDate, setMinDate] = useState<string>();
+  const dateRef = useRef<HTMLInputElement>(null);
+  const weekendPicked = isWeekend(date);
 
   // Predizbira storitve iz URL-ja (/kontakt?storitev=manikura), npr. s CTA gumbov
   // na podstraneh storitev. Šele po mountu, da se prerenderan HTML in hidracija ujemata.
@@ -63,6 +97,16 @@ export function Contact() {
       setService(wanted);
     }
   }, [searchParams]);
+
+  // Tudi "danes" šele po mountu – ob prerenderju bi bil to datum builda.
+  useEffect(() => {
+    setMinDate(todayIso());
+  }, []);
+
+  // Vikend brskalnik zavrne že ob oddaji, enako kot prazno obvezno polje.
+  useEffect(() => {
+    dateRef.current?.setCustomValidity(weekendPicked ? WEEKEND_MESSAGE : '');
+  }, [weekendPicked]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -101,7 +145,8 @@ export function Contact() {
 
     const params = new URLSearchParams();
     for (const [key, value] of data.entries()) {
-      params.append(key, value.toString());
+      const text = value.toString();
+      params.append(key, key === DATE_FIELD ? formatDateSl(text) : text);
     }
 
     setSubmitting(true);
@@ -267,6 +312,46 @@ export function Contact() {
                   </select>
                 </div>
                 <div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="date" className="block text-sm font-medium text-brand-dark/80 mb-2">
+                        Želeni datum<Required />
+                      </label>
+                      <input
+                        ref={dateRef}
+                        type="date"
+                        id="date"
+                        name={DATE_FIELD}
+                        required
+                        min={minDate}
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        aria-describedby="date-hint"
+                        aria-invalid={weekendPicked || undefined}
+                        className={`${FIELD_CLASS} min-h-[50px] appearance-none text-left [&::-webkit-date-and-time-value]:text-left`}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="time" className="block text-sm font-medium text-brand-dark/80 mb-2">
+                        Želeni čas <span className="text-brand-dark/60">(neobvezno)</span>
+                      </label>
+                      <select id="time" name="Zeleni cas" defaultValue="Vseeno" className={FIELD_CLASS}>
+                        <option value="Vseeno">Vseeno mi je</option>
+                        <option value="Dopoldne">Dopoldne</option>
+                        <option value="Popoldne">Popoldne</option>
+                      </select>
+                    </div>
+                  </div>
+                  {weekendPicked && (
+                    <p role="alert" className="mt-2 text-xs text-red-800">
+                      {WEEKEND_MESSAGE}
+                    </p>
+                  )}
+                  <p id="date-hint" className="mt-2 text-xs text-brand-dark/70">
+                    Termin še ni potrjen – ko te pokličem, ga potrdim ali predlagam drug datum.
+                  </p>
+                </div>
+                <div>
                   <label htmlFor="message" className="block text-sm font-medium text-brand-dark/80 mb-2">
                     Sporočilo <span className="text-brand-dark/60">(neobvezno)</span>
                   </label>
@@ -275,7 +360,7 @@ export function Contact() {
                     name="Sporocilo"
                     rows={4}
                     className={FIELD_CLASS}
-                    placeholder="Želeni datum in ura, ali druga vprašanja..."
+                    placeholder="Druge želje ali vprašanja..."
                   ></textarea>
                 </div>
 
